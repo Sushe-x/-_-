@@ -1,0 +1,590 @@
+{
+  "$schema": "./schema.json#/definitions/limits",
+  "kb_version": "1.0.0",
+  "usage_rule": "网页端展示任何限值时，必须同时显示单位、标准号与 confidence。confidence 为 medium/low 的数值须加“待复核”标记；AI 不得将其表述为“标准原文规定”。",
+  "limits": [
+    {
+      "id": "LMT-OEL_CO_TWA",
+      "name": "一氧化碳 PC-TWA",
+      "value": 20,
+      "unit": "mg/m³",
+      "type": "OEL",
+      "std": "STD-GBZ2.1-2019",
+      "applies_to": [
+        "M-CO"
+      ],
+      "confidence": "high",
+      "note": "时间加权平均容许浓度，8 h 工作班。",
+      "review": {
+        "status": "pending",
+        "reviewer": "",
+        "date": "",
+        "note": ""
+      }
+    },
+    {
+      "id": "LMT-OEL_CO_STEL",
+      "name": "一氧化碳 PC-STEL",
+      "value": 30,
+      "unit": "mg/m³",
+      "type": "OEL",
+      "std": "STD-GBZ2.1-2019",
+      "applies_to": [
+        "M-CO"
+      ],
+      "confidence": "high",
+      "note": "短时间接触容许浓度，15 min。",
+      "review": {
+        "status": "pending",
+        "reviewer": "",
+        "date": "",
+        "note": ""
+      }
+    },
+    {
+      "id": "LMT-OEL_H2S_MAC",
+      "name": "硫化氢 MAC",
+      "value": 10,
+      "unit": "mg/m³",
+      "type": "OEL",
+      "std": "STD-GBZ2.1-2019",
+      "applies_to": [
+        "M-H2S"
+      ],
+      "confidence": "high",
+      "note": "最高容许浓度，任何时间均不得超过。硫化氢属高毒，少量即可致人昏迷。",
+      "review": {
+        "status": "pending",
+        "reviewer": "",
+        "date": "",
+        "note": ""
+      }
+    },
+    {
+      "id": "LMT-OEL_NH3_TWA",
+      "name": "氨 PC-TWA",
+      "value": 20,
+      "unit": "mg/m³",
+      "type": "OEL",
+      "std": "STD-GBZ2.1-2019",
+      "applies_to": [
+        "M-NH3"
+      ],
+      "confidence": "high",
+      "review": {
+        "status": "pending",
+        "reviewer": "",
+        "date": "",
+        "note": ""
+      }
+    },
+    {
+      "id": "LMT-OEL_NH3_STEL",
+      "name": "氨 PC-STEL",
+      "value": 30,
+      "unit": "mg/m³",
+      "type": "OEL",
+      "std": "STD-GBZ2.1-2019",
+      "applies_to": [
+        "M-NH3"
+      ],
+      "confidence": "high",
+      "review": {
+        "status": "pending",
+        "reviewer": "",
+        "date": "",
+        "note": ""
+      }
+    },
+    {
+      "id": "LMT-OEL_NO2_TWA",
+      "name": "二氧化氮 PC-TWA",
+      "value": 5,
+      "unit": "mg/m³",
+      "type": "OEL",
+      "std": "STD-GBZ2.1-2019",
+      "applies_to": [
+        "M-NOx"
+      ],
+      "confidence": "high",
+      "note": "以 NO₂ 计。",
+      "review": {
+        "status": "pending",
+        "reviewer": "",
+        "date": "",
+        "note": ""
+      }
+    },
+    {
+      "id": "LMT-OEL_NO2_STEL",
+      "name": "二氧化氮 PC-STEL",
+      "value": 10,
+      "unit": "mg/m³",
+      "type": "OEL",
+      "std": "STD-GBZ2.1-2019",
+      "applies_to": [
+        "M-NOx"
+      ],
+      "confidence": "high",
+      "review": {
+        "status": "pending",
+        "reviewer": "",
+        "date": "",
+        "note": ""
+      }
+    },
+    {
+      "id": "LMT-OEL_SO2_TWA",
+      "name": "二氧化硫 PC-TWA",
+      "value": 5,
+      "unit": "mg/m³",
+      "type": "OEL",
+      "std": "STD-GBZ2.1-2019",
+      "applies_to": [
+        "M-SO2"
+      ],
+      "confidence": "high",
+      "review": {
+        "status": "pending",
+        "reviewer": "",
+        "date": "",
+        "note": ""
+      }
+    },
+    {
+      "id": "LMT-OEL_SO2_STEL",
+      "name": "二氧化硫 PC-STEL",
+      "value": 10,
+      "unit": "mg/m³",
+      "type": "OEL",
+      "std": "STD-GBZ2.1-2019",
+      "applies_to": [
+        "M-SO2"
+      ],
+      "confidence": "high",
+      "review": {
+        "status": "pending",
+        "reviewer": "",
+        "date": "",
+        "note": ""
+      }
+    },
+    {
+      "id": "LMT-OEL_MEOH_TWA",
+      "name": "甲醇 PC-TWA",
+      "value": 25,
+      "unit": "mg/m³",
+      "type": "OEL",
+      "std": "STD-GBZ2.1-2019",
+      "applies_to": [
+        "M-MEOH"
+      ],
+      "confidence": "high",
+      "note": "标准中标注“皮”，即可经皮肤吸收。",
+      "review": {
+        "status": "pending",
+        "reviewer": "",
+        "date": "",
+        "note": ""
+      }
+    },
+    {
+      "id": "LMT-OEL_MEOH_STEL",
+      "name": "甲醇 PC-STEL",
+      "value": 50,
+      "unit": "mg/m³",
+      "type": "OEL",
+      "std": "STD-GBZ2.1-2019",
+      "applies_to": [
+        "M-MEOH"
+      ],
+      "confidence": "high",
+      "review": {
+        "status": "pending",
+        "reviewer": "",
+        "date": "",
+        "note": ""
+      }
+    },
+    {
+      "id": "LMT-OEL_DUST_TOTAL",
+      "name": "煤尘（总尘）PC-TWA",
+      "value": 4,
+      "unit": "mg/m³",
+      "type": "OEL",
+      "std": "STD-GBZ2.1-2019",
+      "applies_to": [
+        "M-COALDUST"
+      ],
+      "confidence": "high",
+      "review": {
+        "status": "pending",
+        "reviewer": "",
+        "date": "",
+        "note": ""
+      }
+    },
+    {
+      "id": "LMT-OEL_DUST_RESP",
+      "name": "煤尘（呼尘）PC-TWA",
+      "value": 2.5,
+      "unit": "mg/m³",
+      "type": "OEL",
+      "std": "STD-GBZ2.1-2019",
+      "applies_to": [
+        "M-COALDUST"
+      ],
+      "confidence": "high",
+      "review": {
+        "status": "pending",
+        "reviewer": "",
+        "date": "",
+        "note": ""
+      }
+    },
+    {
+      "id": "LMT-OEL_NOISE",
+      "name": "噪声 8 h 等效声级",
+      "value": 85,
+      "unit": "dB(A)",
+      "type": "OEL",
+      "std": "STD-GBZ2.2-2007",
+      "applies_to": [],
+      "confidence": "high",
+      "note": "超过 85 dB(A) 应作为噪声作业岗位管理，配备护耳器并做职业健康监护。",
+      "review": {
+        "status": "pending",
+        "reviewer": "",
+        "date": "",
+        "note": ""
+      }
+    },
+    {
+      "id": "LMT-LEL_CO",
+      "name": "一氧化碳爆炸下限",
+      "value": 12.5,
+      "unit": "%(V/V)",
+      "type": "爆炸极限",
+      "std": "",
+      "applies_to": [
+        "M-CO"
+      ],
+      "confidence": "high",
+      "note": "物性常数，非标准限值；上限 74.2%。",
+      "review": {
+        "status": "not_required",
+        "reviewer": "",
+        "date": "",
+        "note": "物性常数，不属标准条款，无需工程师签署"
+      }
+    },
+    {
+      "id": "LMT-LEL_H2",
+      "name": "氢气爆炸下限",
+      "value": 4.0,
+      "unit": "%(V/V)",
+      "type": "爆炸极限",
+      "std": "",
+      "applies_to": [
+        "M-H2"
+      ],
+      "confidence": "high",
+      "note": "物性常数；上限 75.0%。",
+      "review": {
+        "status": "not_required",
+        "reviewer": "",
+        "date": "",
+        "note": "物性常数，不属标准条款，无需工程师签署"
+      }
+    },
+    {
+      "id": "LMT-LEL_CH4",
+      "name": "甲烷爆炸下限",
+      "value": 5.0,
+      "unit": "%(V/V)",
+      "type": "爆炸极限",
+      "std": "",
+      "applies_to": [
+        "M-CH4"
+      ],
+      "confidence": "high",
+      "note": "物性常数；上限 15.0%。",
+      "review": {
+        "status": "not_required",
+        "reviewer": "",
+        "date": "",
+        "note": "物性常数，不属标准条款，无需工程师签署"
+      }
+    },
+    {
+      "id": "LMT-LEL_H2S",
+      "name": "硫化氢爆炸下限",
+      "value": 4.3,
+      "unit": "%(V/V)",
+      "type": "爆炸极限",
+      "std": "",
+      "applies_to": [
+        "M-H2S"
+      ],
+      "confidence": "high",
+      "note": "物性常数；上限 46.0%。",
+      "review": {
+        "status": "not_required",
+        "reviewer": "",
+        "date": "",
+        "note": "物性常数，不属标准条款，无需工程师签署"
+      }
+    },
+    {
+      "id": "LMT-LEL_NH3",
+      "name": "氨爆炸下限",
+      "value": 15.0,
+      "unit": "%(V/V)",
+      "type": "爆炸极限",
+      "std": "",
+      "applies_to": [
+        "M-NH3"
+      ],
+      "confidence": "high",
+      "note": "物性常数；上限 28.0%。",
+      "review": {
+        "status": "not_required",
+        "reviewer": "",
+        "date": "",
+        "note": "物性常数，不属标准条款，无需工程师签署"
+      }
+    },
+    {
+      "id": "LMT-LEL_METHANOL",
+      "name": "甲醇蒸气爆炸下限",
+      "value": 6.0,
+      "unit": "%(V/V)",
+      "type": "爆炸极限",
+      "std": "",
+      "applies_to": [
+        "M-MEOH"
+      ],
+      "confidence": "high",
+      "note": "物性常数；上限 36.5%；闪点 11 ℃。",
+      "review": {
+        "status": "not_required",
+        "reviewer": "",
+        "date": "",
+        "note": "物性常数，不属标准条款，无需工程师签署"
+      }
+    },
+    {
+      "id": "LMT-DUST_LEL_COAL",
+      "name": "煤尘爆炸下限浓度",
+      "value": 30,
+      "unit": "g/m³",
+      "type": "爆炸极限",
+      "std": "STD-GB15577-2018",
+      "applies_to": [
+        "M-COALDUST"
+      ],
+      "confidence": "medium",
+      "note": "典型工程参考值约 30~50 g/m³，随煤种、粒度、挥发分与灰分变化，须以实测为准。标准本身不规定具体数值。",
+      "review": {
+        "status": "not_required",
+        "reviewer": "",
+        "date": "",
+        "note": "物性常数，不属标准条款，无需工程师签署"
+      }
+    },
+    {
+      "id": "LMT-ALARM_LEL_L1",
+      "name": "可燃气体探测器一级报警值",
+      "value": 25,
+      "unit": "%LEL",
+      "type": "报警设定值",
+      "std": "STD-GBT50493-2019",
+      "applies_to": [
+        "M-CH4",
+        "M-H2",
+        "M-CO"
+      ],
+      "confidence": "high",
+      "review": {
+        "status": "pending",
+        "reviewer": "",
+        "date": "",
+        "note": ""
+      }
+    },
+    {
+      "id": "LMT-ALARM_LEL_L2",
+      "name": "可燃气体探测器二级报警值",
+      "value": 50,
+      "unit": "%LEL",
+      "type": "报警设定值",
+      "std": "STD-GBT50493-2019",
+      "applies_to": [
+        "M-CH4",
+        "M-H2",
+        "M-CO"
+      ],
+      "confidence": "high",
+      "review": {
+        "status": "pending",
+        "reviewer": "",
+        "date": "",
+        "note": ""
+      }
+    },
+    {
+      "id": "LMT-O2_DEFICIENCY",
+      "name": "缺氧判定上限",
+      "value": 19.5,
+      "unit": "%(V/V)",
+      "type": "作业环境",
+      "std": "STD-GB30871-2022",
+      "applies_to": [
+        "M-O2",
+        "M-CH4"
+      ],
+      "confidence": "high",
+      "note": "空气中氧含量低于 19.5%（体积分数）即视为缺氧危险环境。",
+      "review": {
+        "status": "pending",
+        "reviewer": "",
+        "date": "",
+        "note": ""
+      }
+    },
+    {
+      "id": "LMT-O2_NORMAL_RANGE",
+      "name": "正常空气氧含量范围",
+      "value": "19.5~21",
+      "unit": "%(V/V)",
+      "type": "作业环境",
+      "std": "STD-GB30871-2022",
+      "applies_to": [
+        "M-O2"
+      ],
+      "confidence": "medium",
+      "note": "受限空间作业前氧含量合格范围的常见引用值。部分资料按 19.5%~23.5% 掌握，须以 GB 30871-2022 正文与企业作业票规定为准。",
+      "review": {
+        "status": "pending",
+        "reviewer": "",
+        "date": "",
+        "note": ""
+      }
+    },
+    {
+      "id": "LMT-CONFINED_LEL_MAX",
+      "name": "受限空间可燃气体容许浓度",
+      "value": 10,
+      "unit": "%LEL",
+      "type": "作业环境",
+      "std": "STD-GB30871-2022",
+      "applies_to": [
+        "M-CH4",
+        "M-H2",
+        "M-CO"
+      ],
+      "confidence": "medium",
+      "note": "受限空间作业前可燃气体浓度控制值的常见引用口径；须以标准正文与作业票审批要求为准。",
+      "review": {
+        "status": "pending",
+        "reviewer": "",
+        "date": "",
+        "note": ""
+      }
+    },
+    {
+      "id": "LMT-HOTWORK_LEL_MAX",
+      "name": "动火作业可燃气体容许浓度",
+      "value": 25,
+      "unit": "%LEL",
+      "type": "作业环境",
+      "std": "STD-GB30871-2022",
+      "applies_to": [
+        "M-CH4",
+        "M-H2",
+        "M-CO"
+      ],
+      "confidence": "medium",
+      "note": "动火前可燃气体浓度控制值的常见引用口径；不同介质与场所可能有更严要求。",
+      "review": {
+        "status": "pending",
+        "reviewer": "",
+        "date": "",
+        "note": ""
+      }
+    },
+    {
+      "id": "LMT-PURGE_O2_MAX",
+      "name": "置换（氮气）后氧含量合格上限",
+      "value": "按企业操作规程（典型 <2）",
+      "unit": "%(V/V)",
+      "type": "工艺控制",
+      "std": "STD-GB30871-2022",
+      "applies_to": [
+        "M-O2"
+      ],
+      "confidence": "low",
+      "note": "标准不规定统一数值，企业应在操作规程/作业票中明确。",
+      "review": {
+        "status": "pending",
+        "reviewer": "",
+        "date": "",
+        "note": ""
+      }
+    },
+    {
+      "id": "LMT-INERT_O2_MAX",
+      "name": "煤粉系统惰化氧含量控制上限",
+      "value": "按设计值（典型 <8~10）",
+      "unit": "%(V/V)",
+      "type": "工艺控制",
+      "std": "STD-GB15577-2018",
+      "applies_to": [
+        "M-O2",
+        "M-COALDUST"
+      ],
+      "confidence": "low",
+      "note": "属于工艺设计参数，应由设计文件与煤种爆炸特性试验确定，本库不给出统一数值。",
+      "review": {
+        "status": "pending",
+        "reviewer": "",
+        "date": "",
+        "note": ""
+      }
+    },
+    {
+      "id": "LMT-O2_PIPE_OIL_FREE",
+      "name": "氧气管道禁油要求",
+      "value": "严格禁油（脱脂合格）",
+      "unit": "—",
+      "type": "工艺控制",
+      "std": "STD-GB16912-2008",
+      "applies_to": [
+        "M-O2"
+      ],
+      "confidence": "high",
+      "note": "氧气管道、阀门、垫片安装前必须脱脂并验收，严禁接触油脂。",
+      "review": {
+        "status": "pending",
+        "reviewer": "",
+        "date": "",
+        "note": ""
+      }
+    }
+  ],
+  "review_workflow": {
+    "owner": "持证安全工程师 / 注册安全工程师",
+    "steps": [
+      "按 limits.json 中 confidence<=medium 或 review.status=pending 的条目导出待复核清单。",
+      "逐条对照标准正文核对数值、单位、适用人群与备注（如“皮”“G1”）。",
+      "一致则置 confirmed；不一致则置 revised 并记录修订值与原值。",
+      "签署 review.reviewer 与 review.date，归档复核记录。"
+    ],
+    "status_values": [
+      "pending",
+      "confirmed",
+      "revised",
+      "not_required"
+    ]
+  }
+}

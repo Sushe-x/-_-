@@ -1,0 +1,303 @@
+{
+  "$schema": "./schema.json#/definitions/actions",
+  "kb_version": "1.1.0",
+  "purpose": "把 crosswalk.json 的 26 条核对结论转成可排期、可指派、可验收的整改任务；四阶段与报告第十章一致。",
+  "status_values": ["open", "doing", "done", "blocked"],
+  "phases": [
+    {
+      "id": "P1",
+      "name": "第一阶段 · 文件与术语修订",
+      "goal": "把不依赖外部机构的修改做完：术语、版本、控制措施、预案框架。",
+      "exit_criteria": "crosswalk 中“需修订”清零，“需补充”项均有对应制度或方案文件。",
+      "owner": "安全管理部门"
+    },
+    {
+      "id": "P2",
+      "name": "第二阶段 · 法定辨识与评价",
+      "goal": "完成重大危险源辨识、外部安全防护距离、特种设备检验等法定事项。",
+      "exit_criteria": "取得辨识报告与 QRA 结论，完成备案。",
+      "owner": "有资质的安全评价机构"
+    },
+    {
+      "id": "P3",
+      "name": "第三阶段 · 现场复评与数据补录",
+      "goal": "LEC 建议值复评，补录企业实测数据（存量、间距、检测值）。",
+      "exit_criteria": "value_status 全部改为 reviewed。",
+      "owner": "企业风险评价小组"
+    },
+    {
+      "id": "P4",
+      "name": "第四阶段 · 条款复核与上线",
+      "goal": "复核限值条款原文，上线网页端并接入对话式 AI。",
+      "exit_criteria": "12 条 AI 评测用例全过，limits 复核状态清零。",
+      "owner": "持证安全工程师 + 开发团队"
+    }
+  ],
+  "actions": [
+    {
+      "id": "A-001",
+      "finding_id": "X-005",
+      "title": "统一事故类别名称，改用 GB 6441-1986 法定类别",
+      "phase": "P1",
+      "owner": "安全管理部门",
+      "priority": "中",
+      "due": "30 天",
+      "deliverable": "修订危险源分析表头，增加“标准类别”列；对外报送统一用法定名称。",
+      "status": "open"
+    },
+    {
+      "id": "A-002",
+      "finding_id": "X-006",
+      "title": "把噪声、粉尘从伤亡事故条目中分离为职业健康因素",
+      "phase": "P1",
+      "owner": "安全管理部门",
+      "priority": "中",
+      "due": "30 天",
+      "deliverable": "拆分为“安全事故风险清单”与“职业健康危害清单”两套台账。",
+      "status": "open"
+    },
+    {
+      "id": "A-003",
+      "finding_id": "X-016",
+      "title": "产品天然气改引 GB/T 33445-2023",
+      "phase": "P1",
+      "owner": "技术/质量部门",
+      "priority": "中",
+      "due": "30 天",
+      "deliverable": "更新工艺说明与合同技术附件中的标准号，注明 2016 版已被代替。",
+      "status": "open"
+    },
+    {
+      "id": "A-004",
+      "finding_id": "X-003",
+      "title": "补齐煤粉系统控爆措施",
+      "phase": "P1",
+      "owner": "设备/安全部门",
+      "priority": "高",
+      "due": "60 天",
+      "deliverable": "惰化保护、泄爆/隔爆装置、超温联锁、粉尘清扫制度四项措施落地并验收。",
+      "status": "open"
+    },
+    {
+      "id": "A-005",
+      "finding_id": "X-004",
+      "title": "明确可燃与有毒气体报警设定值并核对探测器布置",
+      "phase": "P1",
+      "owner": "仪表/安全部门",
+      "priority": "高",
+      "due": "60 天",
+      "deliverable": "报警值台账（25%/50% LEL）、探测器位置图、H₂S/CO 探测器覆盖核查记录。",
+      "status": "open"
+    },
+    {
+      "id": "A-006",
+      "finding_id": "X-013",
+      "title": "建立八类特殊作业管理制度与作业票",
+      "phase": "P1",
+      "owner": "安全管理部门",
+      "priority": "高",
+      "due": "60 天",
+      "deliverable": "按 GB 30871-2022 编制作业票模板、审批流程、监护人职责与气体分析记录。",
+      "status": "open"
+    },
+    {
+      "id": "A-007",
+      "finding_id": "X-010",
+      "title": "补齐应急预案体系（综合/专项/现场处置）",
+      "phase": "P1",
+      "owner": "应急管理部门",
+      "priority": "高",
+      "due": "90 天",
+      "deliverable": "综合预案 + 专项预案 + 七个现场处置方案，含风险评估与应急资源调查。",
+      "status": "open"
+    },
+    {
+      "id": "A-008",
+      "finding_id": "X-011",
+      "title": "补充预警分级、响应分级与信息报告流程",
+      "phase": "P1",
+      "owner": "应急管理部门",
+      "priority": "高",
+      "due": "90 天",
+      "deliverable": "响应分级表（Ⅰ~Ⅳ级）、升级降级条件、内外通讯录与上报时限。",
+      "status": "open"
+    },
+    {
+      "id": "A-009",
+      "finding_id": "X-014",
+      "title": "核算应急事故水池有效容积并编操作卡",
+      "phase": "P1",
+      "owner": "环保/公用工程部门",
+      "priority": "中",
+      "due": "60 天",
+      "deliverable": "按消防水量、降雨量、泄漏物料量计算容积；阀门切换操作卡与演练记录。",
+      "status": "open"
+    },
+    {
+      "id": "A-010",
+      "finding_id": "X-002",
+      "title": "氧气管道脱脂验收与禁油管理",
+      "phase": "P1",
+      "owner": "设备部门",
+      "priority": "中",
+      "due": "60 天",
+      "deliverable": "脱脂施工与验收记录、禁油标识、流速与材质复核。",
+      "status": "open"
+    },
+    {
+      "id": "A-011",
+      "finding_id": "X-018",
+      "title": "锅炉使用登记、定期检验与持证司炉",
+      "phase": "P1",
+      "owner": "设备部门",
+      "priority": "中",
+      "due": "60 天",
+      "deliverable": "特种设备台账、检验计划、司炉与水处理人员证书。",
+      "status": "open"
+    },
+    {
+      "id": "A-012",
+      "finding_id": "X-026",
+      "title": "明确锅炉烟气执行标准与 CEMS 要求",
+      "phase": "P1",
+      "owner": "环保部门",
+      "priority": "中",
+      "due": "60 天",
+      "deliverable": "排放标准清单（GB 13271-2014 及地方更严标准）、CEMS 验收与超标报警。",
+      "status": "open"
+    },
+    {
+      "id": "A-013",
+      "finding_id": "X-023",
+      "title": "编制应急救援物资配备清单",
+      "phase": "P1",
+      "owner": "应急管理部门",
+      "priority": "中",
+      "due": "90 天",
+      "deliverable": "按 GB 30077-2013 列明名称、规格、数量、存放点、检查周期。",
+      "status": "open"
+    },
+    {
+      "id": "A-014",
+      "finding_id": "X-024",
+      "title": "建立演练计划与预案评估修订机制",
+      "phase": "P1",
+      "owner": "应急管理部门",
+      "priority": "中",
+      "due": "90 天",
+      "deliverable": "年度演练计划、演练评估表、三年一次预案评估修订记录。",
+      "status": "open"
+    },
+    {
+      "id": "A-015",
+      "finding_id": "X-019",
+      "title": "按 GB 18218-2018 完成重大危险源辨识与分级",
+      "phase": "P2",
+      "owner": "有资质的安全评价机构",
+      "priority": "高",
+      "due": "180 天",
+      "deliverable": "辨识报告（单元划分、q/Q/β/α 记录、R 值与级别）、备案材料。关联 kb/major_hazard.json。",
+      "status": "open"
+    },
+    {
+      "id": "A-016",
+      "finding_id": "X-020",
+      "title": "确定外部安全防护距离",
+      "phase": "P2",
+      "owner": "有资质的安全评价机构",
+      "priority": "高",
+      "due": "180 天",
+      "deliverable": "按 GB 36894-2018 与 GB/T 37243-2019 出具个人/社会风险计算与防护距离结论。",
+      "status": "open"
+    },
+    {
+      "id": "A-017",
+      "finding_id": "X-022",
+      "title": "压力容器与压力管道定期检验",
+      "phase": "P2",
+      "owner": "设备部门 + 检验机构",
+      "priority": "中",
+      "due": "180 天",
+      "deliverable": "特种设备台账、安全阀校验记录、检验报告归档。",
+      "status": "open"
+    },
+    {
+      "id": "A-018",
+      "finding_id": "X-007",
+      "title": "固定 LEC 分级口径并在管理文件中声明",
+      "phase": "P1",
+      "owner": "安全管理部门",
+      "priority": "中",
+      "due": "30 天",
+      "deliverable": "风险评价管理制度中明确采用 classic_5_level 或 source_doc_4_level 之一。",
+      "status": "open"
+    },
+    {
+      "id": "A-019",
+      "finding_id": "X-021",
+      "title": "煤场自燃量化管理指标",
+      "phase": "P3",
+      "owner": "生产部门",
+      "priority": "低",
+      "due": "90 天",
+      "deliverable": "煤堆温度监测频次、倒堆周期、堆存时间上限的量化规定。",
+      "status": "open"
+    },
+    {
+      "id": "A-020",
+      "finding_id": "X-025",
+      "title": "区分岗位接触限值与厂界排放限值",
+      "phase": "P3",
+      "owner": "职业卫生管理部门",
+      "priority": "低",
+      "due": "90 天",
+      "deliverable": "岗位噪声检测报告、厂界噪声检测报告分列归档。",
+      "status": "open"
+    },
+    {
+      "id": "A-021",
+      "finding_id": null,
+      "title": "LEC 32 行建议值现场复评",
+      "phase": "P3",
+      "owner": "企业风险评价小组",
+      "priority": "高",
+      "due": "120 天",
+      "deliverable": "小组打分记录与均值，value_status 由 suggested 改为 reviewed。",
+      "status": "open"
+    },
+    {
+      "id": "A-022",
+      "finding_id": null,
+      "title": "补录企业实测数据（存量、间距、检测值）",
+      "phase": "P3",
+      "owner": "企业各专业部门",
+      "priority": "中",
+      "due": "120 天",
+      "deliverable": "设备台账、总平面间距表、气体与噪声检测报告接入知识库。",
+      "status": "open"
+    },
+    {
+      "id": "A-023",
+      "finding_id": null,
+      "title": "限值条款原文复核（limits.json 全部 medium/low 项）",
+      "phase": "P4",
+      "owner": "持证安全工程师",
+      "priority": "高",
+      "due": "持续",
+      "deliverable": "逐条对照标准正文，填写 review.reviewer/date，状态改为 confirmed 或 revised。",
+      "status": "open"
+    },
+    {
+      "id": "A-024",
+      "finding_id": null,
+      "title": "网页端上线并接入对话式 AI",
+      "phase": "P4",
+      "owner": "开发团队",
+      "priority": "中",
+      "due": "持续",
+      "deliverable": "通过 docs/AI接入规范.md 的 12 条评测用例，接入检索与回答契约。",
+      "status": "open"
+    }
+  ],
+  "summary_rule": "进度 = done 数 / 总数；按 phase 分组显示。priority 为高的项应在阶段内优先排期。"
+}

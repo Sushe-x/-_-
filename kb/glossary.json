@@ -1,0 +1,26 @@
+{
+  "kb_version": "1.0.0",
+  "purpose": "统一术语与缩写，供网页端提示词、检索同义词扩展与 AI 回答口径使用。aliases 用于检索召回，definition 用于展示。",
+  "terms": [
+    { "id": "T-001", "term": "煤制天然气（SNG）", "aliases": ["煤制气", "煤制合成天然气", "SNG", "coal-to-SNG"], "definition": "以煤为原料，经气化、净化变换、甲烷化制取以甲烷为主的合成天然气。", "source": "GB/T 33445-2023" },
+    { "id": "T-002", "term": "粗合成气", "aliases": ["粗煤气", "syngas", "合成气"], "definition": "煤粉与氧气、蒸汽在气化炉内反应生成的以 CO、H₂ 为主，并含 H₂S、CO₂ 的高温高压气体。", "source": "工艺流程.docx" },
+    { "id": "T-003", "term": "甲烷化", "aliases": ["methanation"], "definition": "在催化剂作用下 CO/CO₂ 与 H₂ 反应生成 CH₄ 的强放热过程。", "source": "工艺流程.docx" },
+    { "id": "T-004", "term": "变换", "aliases": ["CO变换", "水煤气变换", "WGS"], "definition": "CO + H₂O → CO₂ + H₂，用于调节合成气氢碳比。", "source": "工艺流程.docx" },
+    { "id": "T-005", "term": "重大危险源", "aliases": ["major hazard installation"], "definition": "长期或临时生产、加工、使用或贮存危险化学品，且危险化学品数量等于或超过临界量的单元。", "source": "GB 18218-2018" },
+    { "id": "T-006", "term": "临界量", "aliases": ["threshold quantity"], "definition": "对某种危险化学品规定的、用于判定重大危险源的数量界限。", "source": "GB 18218-2018" },
+    { "id": "T-007", "term": "LEC 法", "aliases": ["作业条件危险性评价法", "格雷厄姆-金尼法", "Graham-Kinney"], "definition": "以 D=L×E×C 衡量作业危险性的半定量评价方法。", "source": "LEC法.docx" },
+    { "id": "T-008", "term": "受限空间", "aliases": ["有限空间", "confined space", "密闭空间"], "definition": "进出口受限、通风不良，可能存在缺氧、有毒有害或易燃易爆物质积聚的空间。", "source": "GB 30871-2022" },
+    { "id": "T-009", "term": "动火作业", "aliases": ["hot work"], "definition": "在禁火区内进行的、可能产生火焰、火花或炽热表面的非常规作业，按风险分为特殊动火、一级动火、二级动火。", "source": "GB 30871-2022" },
+    { "id": "T-010", "term": "特殊作业", "aliases": ["八大作业", "special work"], "definition": "动火、受限空间、盲板抽堵、高处、吊装、临时用电、动土、断路八类作业。", "source": "GB 30871-2022" },
+    { "id": "T-011", "term": "LEL", "aliases": ["爆炸下限", "lower explosive limit"], "definition": "可燃气体或蒸气能够发生爆炸的最低体积浓度，报警值常以 %LEL 表示。", "source": "GB/T 50493-2019" },
+    { "id": "T-012", "term": "PC-TWA", "aliases": ["时间加权平均容许浓度"], "definition": "以时间为权数规定的 8 h 工作日、40 h 工作周的平均容许接触浓度。", "source": "GBZ 2.1-2019" },
+    { "id": "T-013", "term": "PC-STEL", "aliases": ["短时间接触容许浓度"], "definition": "在遵守 PC-TWA 前提下容许短时间（15 min）接触的浓度。", "source": "GBZ 2.1-2019" },
+    { "id": "T-014", "term": "MAC", "aliases": ["最高容许浓度"], "definition": "在一个工作日内、任何时间均不应超过的有毒化学物质浓度。", "source": "GBZ 2.1-2019" },
+    { "id": "T-015", "term": "应急事故水池", "aliases": ["事故池", "应急池"], "definition": "用于收集事故状态下消防废水、泄漏物料与污染雨水的储存设施，防止事故废水直接外排。", "source": "GB/T 50483-2019" },
+    { "id": "T-016", "term": "泄爆", "aliases": ["泄压", "explosion venting"], "definition": "在爆炸初期将压力与火焰通过泄放面导向安全区域的防护措施。", "source": "GB 15577-2018" },
+    { "id": "T-017", "term": "隔爆", "aliases": ["explosion isolation"], "definition": "阻止爆炸火焰与压力在设备或管道之间传播的措施。", "source": "GB 15577-2018" },
+    { "id": "T-018", "term": "抑爆", "aliases": ["explosion suppression"], "definition": "探测到爆炸初期信号后快速喷入抑爆剂以抑制压力上升的措施。", "source": "GB 15577-2018" },
+    { "id": "T-019", "term": "飞温", "aliases": ["runaway", "反应失控"], "definition": "放热反应因移热不足导致床层温度失控上升的现象，可引发超压与催化剂烧结。", "source": "危险源分析" },
+    { "id": "T-020", "term": "带压堵漏", "aliases": ["不停车堵漏"], "definition": "在设备管道带压状态下，使用夹具、注胶或更换垫片等方式消除泄漏的作业。", "source": "应急预案措施.docx" }
+  ]
+}

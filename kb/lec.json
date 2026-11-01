@@ -1,0 +1,785 @@
+{
+  "$schema": "./schema.json#/definitions/lec",
+  "kb_version": "1.0.0",
+  "method": {
+    "id": "M-LEC",
+    "name": "作业条件危险性评价法（LEC法）",
+    "name_en": "Graham-Kinney Method",
+    "origin": "由美国安全专家格雷厄姆（Graham）和金尼（Kinney）提出",
+    "type": "半定量安全评价方法",
+    "formula": "D = L × E × C",
+    "purpose": "衡量操作人员在潜在危险环境中作业时的危险性，并对风险排序",
+    "scope": "适用于评价单一作业活动（如动火、高处作业、进入受限空间），不适合反映整个系统的复杂风险关联",
+    "limitations": [
+      "主观性明显：L、E、C 的取值高度依赖评价人员经验，不同人打分可能偏差较大",
+      "“伪定量”争议：三个序数性分值相乘，数学意义并不严谨，结果宜作相对排序工具，不宜当作精确概率",
+      "仅适用于局部作业：无法反映整个系统的复杂风险关联"
+    ],
+    "good_practice": [
+      "由熟悉现场的小组共同打分并取均值",
+      "与 JSA/HAZOP 等定性方法组合使用",
+      "企业应在安全管理文件中明确所采用的等级阈值"
+    ]
+  },
+  "parameters": {
+    "L": {
+      "label": "事故发生的可能性",
+      "unit": "无量纲",
+      "table": [
+        {
+          "value": 10,
+          "text": "完全可以预料"
+        },
+        {
+          "value": 6,
+          "text": "相当可能"
+        },
+        {
+          "value": 3,
+          "text": "可能，但不经常"
+        },
+        {
+          "value": 1,
+          "text": "可能性小，完全意外"
+        },
+        {
+          "value": 0.5,
+          "text": "很不可能，可以设想"
+        },
+        {
+          "value": 0.2,
+          "text": "极不可能"
+        },
+        {
+          "value": 0.1,
+          "text": "实际不可能"
+        }
+      ]
+    },
+    "E": {
+      "label": "暴露于危险环境的频繁程度",
+      "unit": "无量纲",
+      "table": [
+        {
+          "value": 10,
+          "text": "连续暴露"
+        },
+        {
+          "value": 6,
+          "text": "每天工作时间内暴露"
+        },
+        {
+          "value": 3,
+          "text": "每周一次或偶然暴露"
+        },
+        {
+          "value": 2,
+          "text": "每月一次暴露"
+        },
+        {
+          "value": 1,
+          "text": "每年几次暴露"
+        },
+        {
+          "value": 0.5,
+          "text": "非常罕见地暴露"
+        }
+      ]
+    },
+    "C": {
+      "label": "发生事故可能造成的后果",
+      "unit": "无量纲",
+      "table": [
+        {
+          "value": 100,
+          "text": "大灾难，许多人死亡"
+        },
+        {
+          "value": 40,
+          "text": "灾难，数人死亡"
+        },
+        {
+          "value": 15,
+          "text": "非常严重，一人死亡"
+        },
+        {
+          "value": 7,
+          "text": "严重，重伤"
+        },
+        {
+          "value": 3,
+          "text": "重大，致残"
+        },
+        {
+          "value": 1,
+          "text": "引人注目，需要救护"
+        }
+      ]
+    }
+  },
+  "grading": {
+    "default_scheme": "classic_5_level",
+    "schemes": [
+      {
+        "id": "classic_5_level",
+        "name": "经典五级划分",
+        "status": "standard",
+        "note": "格雷厄姆-金尼法通行的五级划分，多数教材与企业文件采用。",
+        "levels": [
+          {
+            "level": "极其危险",
+            "risk_level": "重大风险",
+            "min": 320,
+            "max": null,
+            "min_inclusive": false,
+            "action": "不能继续作业，须立即整改"
+          },
+          {
+            "level": "高度危险",
+            "risk_level": "较大风险",
+            "min": 160,
+            "max": 320,
+            "min_inclusive": true,
+            "action": "需立即或近期采取措施降低风险"
+          },
+          {
+            "level": "显著危险",
+            "risk_level": "一般风险",
+            "min": 70,
+            "max": 160,
+            "min_inclusive": true,
+            "action": "需要整改，可考虑建立操作规程与培训"
+          },
+          {
+            "level": "一般危险",
+            "risk_level": "低风险",
+            "min": 20,
+            "max": 70,
+            "min_inclusive": true,
+            "action": "需要注意"
+          },
+          {
+            "level": "稍有危险",
+            "risk_level": "低风险",
+            "min": 0,
+            "max": 20,
+            "min_inclusive": true,
+            "action": "可以接受，保持关注"
+          }
+        ]
+      },
+      {
+        "id": "source_doc_4_level",
+        "name": "源文档四级划分",
+        "status": "as_documented",
+        "note": "源文档《LEC法.docx》采用的四级划分，把 <70 统一归为低风险；使用时须在企业管理文件中固定口径。",
+        "levels": [
+          {
+            "level": "重大风险（极其危险）",
+            "risk_level": "重大风险",
+            "min": 320,
+            "max": null,
+            "min_inclusive": false,
+            "action": "不能继续作业，须立即整改"
+          },
+          {
+            "level": "较大风险（高度危险）",
+            "risk_level": "较大风险",
+            "min": 160,
+            "max": 320,
+            "min_inclusive": true,
+            "action": "需立即或近期采取措施降低风险"
+          },
+          {
+            "level": "一般风险（显著危险）",
+            "risk_level": "一般风险",
+            "min": 70,
+            "max": 160,
+            "min_inclusive": true,
+            "action": "需要整改，可考虑建立操作规程与培训"
+          },
+          {
+            "level": "低风险（一般危险）",
+            "risk_level": "低风险",
+            "min": 0,
+            "max": 70,
+            "min_inclusive": true,
+            "action": "需注意但通常无需立即停工，保持关注即可"
+          }
+        ]
+      }
+    ],
+    "boundary_note": "两套口径在 D=70 与 D=20 处存在差异：源文档将 20≤D<70 并入低风险；经典划分将其单列为“一般危险”。D=320 与 D=160 的归属一致（均为左闭右开）。"
+  },
+  "table_schema": {
+    "columns": [
+      "id",
+      "unit_id",
+      "hazard_id",
+      "activity",
+      "hazard_title",
+      "consequence",
+      "L",
+      "E",
+      "C",
+      "D",
+      "level",
+      "risk_level",
+      "control",
+      "value_status"
+    ],
+    "column_notes": {
+      "D": "由 L×E×C 计算，不允许人工填写",
+      "value_status": "source_example=原文档示例；suggested=本项目建议值，须经企业风险评价小组评审确认"
+    }
+  },
+  "reference_example": {
+    "id": "L-EX-01",
+    "activity": "加油作业",
+    "hazard_title": "汽油遇火源",
+    "consequence": "火灾、爆炸",
+    "L": 0.5,
+    "E": 6,
+    "C": 15,
+    "D": 45,
+    "level": "一般危险，需要注意",
+    "control": "严禁烟火、严格按规程作业",
+    "value_status": "source_example",
+    "provenance": {
+      "doc": "LEC法.docx",
+      "locator": "填写示例（以加油作业火灾爆炸风险为例）"
+    }
+  },
+  "assessments": [
+    {
+      "id": "L-U01-01",
+      "unit_id": "U01",
+      "hazard_id": "H-U01-01",
+      "activity": "煤场堆存与取料",
+      "hazard_title": "煤堆自燃火灾",
+      "consequence": "火灾、CO中毒",
+      "L": 3,
+      "E": 6,
+      "C": 15,
+      "D": 270,
+      "level": "高度危险",
+      "risk_level": "较大风险",
+      "control": "分区堆存、测温倒堆、消防给水、严禁明火",
+      "value_status": "suggested"
+    },
+    {
+      "id": "L-U01-02",
+      "unit_id": "U01",
+      "hazard_id": "H-U01-02",
+      "activity": "卸煤与堆料",
+      "hazard_title": "煤尘爆炸",
+      "consequence": "粉尘爆炸、建筑损毁",
+      "L": 1,
+      "E": 6,
+      "C": 40,
+      "D": 240,
+      "level": "高度危险",
+      "risk_level": "较大风险",
+      "control": "泄爆隔爆抑爆、防爆电气、清扫积尘",
+      "value_status": "suggested"
+    },
+    {
+      "id": "L-U01-03",
+      "unit_id": "U01",
+      "hazard_id": "H-U01-03",
+      "activity": "卸煤机/转运设备操作",
+      "hazard_title": "机械伤害",
+      "consequence": "挤压磕碰",
+      "L": 3,
+      "E": 6,
+      "C": 3,
+      "D": 54,
+      "level": "一般危险",
+      "risk_level": "低风险",
+      "control": "防护罩、急停、挂牌上锁",
+      "value_status": "suggested"
+    },
+    {
+      "id": "L-U01-04",
+      "unit_id": "U01",
+      "hazard_id": "H-U01-04",
+      "activity": "煤场取料",
+      "hazard_title": "煤堆坍塌掩埋",
+      "consequence": "掩埋窒息",
+      "L": 1,
+      "E": 3,
+      "C": 7,
+      "D": 21,
+      "level": "一般危险",
+      "risk_level": "低风险",
+      "control": "控制堆高坡度、禁止掏挖",
+      "value_status": "suggested"
+    },
+    {
+      "id": "L-U02-01",
+      "unit_id": "U02",
+      "hazard_id": "H-U02-01",
+      "activity": "皮带输煤与转运",
+      "hazard_title": "煤尘爆炸、火灾",
+      "consequence": "爆炸起火",
+      "L": 1,
+      "E": 6,
+      "C": 15,
+      "D": 90,
+      "level": "显著危险",
+      "risk_level": "一般风险",
+      "control": "除尘清扫、防静电接地、防爆电气",
+      "value_status": "suggested"
+    },
+    {
+      "id": "L-U02-02",
+      "unit_id": "U02",
+      "hazard_id": "H-U02-02",
+      "activity": "皮带巡检与清扫",
+      "hazard_title": "皮带卷入",
+      "consequence": "绞伤、断肢",
+      "L": 3,
+      "E": 6,
+      "C": 3,
+      "D": 54,
+      "level": "一般危险",
+      "risk_level": "低风险",
+      "control": "防护罩、拉绳急停、禁止运行中清扫",
+      "value_status": "suggested"
+    },
+    {
+      "id": "L-U02-03",
+      "unit_id": "U02",
+      "hazard_id": "H-U02-03",
+      "activity": "输煤设备巡检",
+      "hazard_title": "噪声",
+      "consequence": "噪声聋",
+      "L": 3,
+      "E": 10,
+      "C": 1,
+      "D": 30,
+      "level": "一般危险",
+      "risk_level": "低风险",
+      "control": "护耳器、隔声、噪声检测",
+      "value_status": "suggested"
+    },
+    {
+      "id": "L-U03-01",
+      "unit_id": "U03",
+      "hazard_id": "H-U03-01",
+      "activity": "磨煤制粉运行",
+      "hazard_title": "煤粉爆炸",
+      "consequence": "爆炸、串燃煤仓、多人伤亡",
+      "L": 3,
+      "E": 6,
+      "C": 40,
+      "D": 720,
+      "level": "极其危险",
+      "risk_level": "重大风险",
+      "control": "惰化保护、泄爆隔爆、超温联锁、防爆电气",
+      "value_status": "suggested"
+    },
+    {
+      "id": "L-U03-02",
+      "unit_id": "U03",
+      "hazard_id": "H-U03-02",
+      "activity": "磨煤系统巡检与检修",
+      "hazard_title": "CO中毒、窒息",
+      "consequence": "中毒昏迷、死亡",
+      "L": 3,
+      "E": 6,
+      "C": 15,
+      "D": 270,
+      "level": "高度危险",
+      "risk_level": "较大风险",
+      "control": "CO探测、受限空间作业票、正压呼吸器",
+      "value_status": "suggested"
+    },
+    {
+      "id": "L-U03-03",
+      "unit_id": "U03",
+      "hazard_id": "H-U03-03",
+      "activity": "磨煤机巡检",
+      "hazard_title": "高温烫伤",
+      "consequence": "接触烫伤",
+      "L": 3,
+      "E": 3,
+      "C": 1,
+      "D": 9,
+      "level": "稍有危险",
+      "risk_level": "低风险",
+      "control": "保温、防烫隔离、警示标识",
+      "value_status": "suggested"
+    },
+    {
+      "id": "L-U04-01",
+      "unit_id": "U04",
+      "hazard_id": "H-U04-01",
+      "activity": "气化炉运行与开停车",
+      "hazard_title": "合成气火灾爆炸",
+      "consequence": "燃爆、多人死亡、装置损毁",
+      "L": 3,
+      "E": 6,
+      "C": 100,
+      "D": 1800,
+      "level": "极其危险",
+      "risk_level": "重大风险",
+      "control": "ESD联锁、氮气置换、可燃气体探测、动火票",
+      "value_status": "suggested"
+    },
+    {
+      "id": "L-U04-02",
+      "unit_id": "U04",
+      "hazard_id": "H-U04-02",
+      "activity": "气化炉巡检与检修",
+      "hazard_title": "CO、H₂S 中毒",
+      "consequence": "急性中毒、死亡",
+      "L": 3,
+      "E": 6,
+      "C": 40,
+      "D": 720,
+      "level": "极其危险",
+      "risk_level": "重大风险",
+      "control": "H₂S/CO探测、正压呼吸器、受限空间作业票",
+      "value_status": "suggested"
+    },
+    {
+      "id": "L-U04-03",
+      "unit_id": "U04",
+      "hazard_id": "H-U04-03",
+      "activity": "高温高压管线巡检",
+      "hazard_title": "高温灼烫、高压喷射",
+      "consequence": "烫伤、冲击伤",
+      "L": 3,
+      "E": 6,
+      "C": 7,
+      "D": 126,
+      "level": "显著危险",
+      "risk_level": "一般风险",
+      "control": "炉壁测温、保温隔离、远距离巡检",
+      "value_status": "suggested"
+    },
+    {
+      "id": "L-U04-04",
+      "unit_id": "U04",
+      "hazard_id": "H-U04-04",
+      "activity": "氧气/蒸汽系统操作",
+      "hazard_title": "氧气管道燃爆、蒸汽烫伤",
+      "consequence": "燃爆、烫伤",
+      "L": 1,
+      "E": 6,
+      "C": 40,
+      "D": 240,
+      "level": "高度危险",
+      "risk_level": "较大风险",
+      "control": "严格禁油、脱脂验收、保温防烫",
+      "value_status": "suggested"
+    },
+    {
+      "id": "L-U05-01",
+      "unit_id": "U05",
+      "hazard_id": "H-U05-01",
+      "activity": "洗涤/变换/分离巡检",
+      "hazard_title": "H₂S、CO 泄漏中毒",
+      "consequence": "中毒昏迷、死亡",
+      "L": 3,
+      "E": 6,
+      "C": 15,
+      "D": 270,
+      "level": "高度危险",
+      "risk_level": "较大风险",
+      "control": "H₂S探测、密闭采样、正压防护",
+      "value_status": "suggested"
+    },
+    {
+      "id": "L-U05-02",
+      "unit_id": "U05",
+      "hazard_id": "H-U05-02",
+      "activity": "CO变换反应操作",
+      "hazard_title": "火灾爆炸、变换炉飞温超压",
+      "consequence": "爆炸、反应器损坏",
+      "L": 1,
+      "E": 6,
+      "C": 40,
+      "D": 240,
+      "level": "高度危险",
+      "risk_level": "较大风险",
+      "control": "超温联锁、安全阀校验、可燃气体探测",
+      "value_status": "suggested"
+    },
+    {
+      "id": "L-U05-03",
+      "unit_id": "U05",
+      "hazard_id": "H-U05-03",
+      "activity": "酸性介质设备维护",
+      "hazard_title": "腐蚀泄漏",
+      "consequence": "物料外泄、次生中毒",
+      "L": 3,
+      "E": 6,
+      "C": 7,
+      "D": 126,
+      "level": "显著危险",
+      "risk_level": "一般风险",
+      "control": "选材与腐蚀裕量、测厚、围堰",
+      "value_status": "suggested"
+    },
+    {
+      "id": "L-U06-01",
+      "unit_id": "U06",
+      "hazard_id": "H-U06-01",
+      "activity": "甲烷化反应操作",
+      "hazard_title": "火灾爆炸、飞温超压",
+      "consequence": "爆炸、催化剂烧结",
+      "L": 1,
+      "E": 6,
+      "C": 40,
+      "D": 240,
+      "level": "高度危险",
+      "risk_level": "较大风险",
+      "control": "超温联锁、紧急切断、可燃气体探测",
+      "value_status": "suggested"
+    },
+    {
+      "id": "L-U06-02",
+      "unit_id": "U06",
+      "hazard_id": "H-U06-02",
+      "activity": "甲烷化厂房巡检",
+      "hazard_title": "CO中毒、缺氧窒息",
+      "consequence": "中毒、窒息",
+      "L": 1,
+      "E": 6,
+      "C": 15,
+      "D": 90,
+      "level": "显著危险",
+      "risk_level": "一般风险",
+      "control": "CO探测、氧含量检测、通风",
+      "value_status": "suggested"
+    },
+    {
+      "id": "L-U06-03",
+      "unit_id": "U06",
+      "hazard_id": "H-U06-03",
+      "activity": "催化剂更换与法兰维护",
+      "hazard_title": "高温烫伤、密封点泄漏",
+      "consequence": "烫伤、可燃气体泄漏",
+      "L": 3,
+      "E": 3,
+      "C": 1,
+      "D": 9,
+      "level": "稍有危险",
+      "risk_level": "低风险",
+      "control": "保温、防烫警示、泄漏检测",
+      "value_status": "suggested"
+    },
+    {
+      "id": "L-U07-01",
+      "unit_id": "U07",
+      "hazard_id": "H-U07-01",
+      "activity": "冷凝分离与冷凝液外送",
+      "hazard_title": "可燃介质泄漏、冷凝液火灾",
+      "consequence": "液体火灾、中毒",
+      "L": 3,
+      "E": 6,
+      "C": 15,
+      "D": 270,
+      "level": "高度危险",
+      "risk_level": "较大风险",
+      "control": "氮封、防火堤、防静电接地、可燃气体探测",
+      "value_status": "suggested"
+    },
+    {
+      "id": "L-U07-02",
+      "unit_id": "U07",
+      "hazard_id": "H-U07-02",
+      "activity": "低温设备巡检",
+      "hazard_title": "低温冻伤",
+      "consequence": "冻伤",
+      "L": 3,
+      "E": 3,
+      "C": 1,
+      "D": 9,
+      "level": "稍有危险",
+      "risk_level": "低风险",
+      "control": "保温、防冻伤防护",
+      "value_status": "suggested"
+    },
+    {
+      "id": "L-U08-01",
+      "unit_id": "U08",
+      "hazard_id": "H-U08-01",
+      "activity": "压缩与深度净化运行",
+      "hazard_title": "高压甲烷泄漏爆炸",
+      "consequence": "爆炸、多人伤亡",
+      "L": 1,
+      "E": 6,
+      "C": 40,
+      "D": 240,
+      "level": "高度危险",
+      "risk_level": "较大风险",
+      "control": "超压联锁、可燃气体探测、安全阀校验",
+      "value_status": "suggested"
+    },
+    {
+      "id": "L-U08-02",
+      "unit_id": "U08",
+      "hazard_id": "H-U08-02",
+      "activity": "压缩机房巡检",
+      "hazard_title": "甲烷窒息",
+      "consequence": "缺氧窒息",
+      "L": 1,
+      "E": 3,
+      "C": 15,
+      "D": 45,
+      "level": "一般危险",
+      "risk_level": "低风险",
+      "control": "氧含量检测、强制通风",
+      "value_status": "suggested"
+    },
+    {
+      "id": "L-U08-03",
+      "unit_id": "U08",
+      "hazard_id": "H-U08-03",
+      "activity": "压缩机巡检",
+      "hazard_title": "压缩机噪声",
+      "consequence": "噪声聋",
+      "L": 3,
+      "E": 10,
+      "C": 1,
+      "D": 30,
+      "level": "一般危险",
+      "risk_level": "低风险",
+      "control": "隔声罩、护耳器、噪声检测",
+      "value_status": "suggested"
+    },
+    {
+      "id": "L-U09-01",
+      "unit_id": "U09",
+      "hazard_id": "H-U09-01",
+      "activity": "输气站运行与外输",
+      "hazard_title": "高压天然气泄漏爆炸",
+      "consequence": "爆炸、火灾蔓延",
+      "L": 1,
+      "E": 6,
+      "C": 40,
+      "D": 240,
+      "level": "高度危险",
+      "risk_level": "较大风险",
+      "control": "截断联锁、放空、可燃气体探测、管线巡检",
+      "value_status": "suggested"
+    },
+    {
+      "id": "L-U09-02",
+      "unit_id": "U09",
+      "hazard_id": "H-U09-02",
+      "activity": "调压与升降压操作",
+      "hazard_title": "超压、水击、静电引燃",
+      "consequence": "管道损坏、燃爆",
+      "L": 1,
+      "E": 6,
+      "C": 7,
+      "D": 42,
+      "level": "一般危险",
+      "risk_level": "低风险",
+      "control": "超压保护、控制升降压速率、防静电接地",
+      "value_status": "suggested"
+    },
+    {
+      "id": "L-U10-01",
+      "unit_id": "U10",
+      "hazard_id": "H-U10-01",
+      "activity": "排渣与渣场作业",
+      "hazard_title": "炉渣高温灼烫",
+      "consequence": "烫伤",
+      "L": 3,
+      "E": 6,
+      "C": 1,
+      "D": 18,
+      "level": "稍有危险",
+      "risk_level": "低风险",
+      "control": "隔离警示、隔热防护",
+      "value_status": "suggested"
+    },
+    {
+      "id": "L-U10-02",
+      "unit_id": "U10",
+      "hazard_id": "H-U10-02",
+      "activity": "石膏渣转运",
+      "hazard_title": "粉尘",
+      "consequence": "尘肺",
+      "L": 3,
+      "E": 10,
+      "C": 1,
+      "D": 30,
+      "level": "一般危险",
+      "risk_level": "低风险",
+      "control": "密闭除尘、防尘口罩、职业健康监护",
+      "value_status": "suggested"
+    },
+    {
+      "id": "L-U11-01",
+      "unit_id": "U11",
+      "hazard_id": "H-U11-01",
+      "activity": "锅炉运行与蒸汽系统",
+      "hazard_title": "锅炉爆炸、蒸汽烫伤",
+      "consequence": "锅炉爆炸、多人伤亡",
+      "L": 0.5,
+      "E": 6,
+      "C": 40,
+      "D": 120,
+      "level": "显著危险",
+      "risk_level": "一般风险",
+      "control": "水位超压联锁、安全阀、定期检验、持证司炉",
+      "value_status": "suggested"
+    },
+    {
+      "id": "L-U11-02",
+      "unit_id": "U11",
+      "hazard_id": "H-U11-02",
+      "activity": "脱硝脱硫与氨区作业",
+      "hazard_title": "氨泄漏、CO/NOₓ 中毒",
+      "consequence": "中毒、呼吸道损伤",
+      "L": 1,
+      "E": 6,
+      "C": 7,
+      "D": 42,
+      "level": "一般危险",
+      "risk_level": "低风险",
+      "control": "氨探测、喷淋吸收、CEMS、正压防护",
+      "value_status": "suggested"
+    },
+    {
+      "id": "L-U11-03",
+      "unit_id": "U11",
+      "hazard_id": "H-U11-03",
+      "activity": "风机与除尘设备维护",
+      "hazard_title": "机械伤害、噪声",
+      "consequence": "机械伤害、噪声聋",
+      "L": 3,
+      "E": 3,
+      "C": 3,
+      "D": 27,
+      "level": "一般危险",
+      "risk_level": "低风险",
+      "control": "防护罩、挂牌上锁、护耳器",
+      "value_status": "suggested"
+    }
+  ],
+  "statistics": {
+    "total": 32,
+    "by_level": {
+      "极其危险": 3,
+      "高度危险": 10,
+      "显著危险": 5,
+      "一般危险": 10,
+      "稍有危险": 4
+    },
+    "top5": [
+      "L-U04-01",
+      "L-U03-01",
+      "L-U04-02",
+      "L-U01-01",
+      "L-U03-02"
+    ],
+    "note": "suggested 值仅用于演示排序逻辑，正式使用前必须由企业风险评价小组按现场实际复评。"
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "$schema": "./schema.json#/definitions/major_hazard",
+  "kb_version": "1.1.0",
+  "status": "tool_ready_data_pending",
+  "status_note": "本模块提供 GB 18218-2018 的**判定框架与记录结构**。临界量 Q、校正系数 β/α 属法定参数，本库不代为填录，统一置空并标 pending，由企业或有资质机构按标准正文录入。R 值计算与分级在填录后自动完成。",
+  "standard": "STD-GB18218-2018",
+  "related_standards": ["STD-GB36894-2018", "STD-GBT37243-2019"],
+  "why_it_matters": "煤制天然气装置涉及 CO、H₂S、CH₄、H₂、甲醇、氨等危险化学品。按 GB 18218-2018 以临界量比值法判定是否构成重大危险源并分级，是法定管理起点：构成后须备案、定期评估、设置安全监测监控，并影响外部安全防护距离的确定。源文档完全未涉及，是本次核对中最高严重度的缺口（X-019）。",
+  "method": {
+    "name": "临界量比值法",
+    "formula": "R = α × Σ ( β_i × q_i / Q_i )",
+    "symbols": [
+      { "symbol": "q_i", "meaning": "第 i 种危险化学品的实际存在量", "unit": "t" },
+      { "symbol": "Q_i", "meaning": "第 i 种危险化学品对应的临界量", "unit": "t" },
+      { "symbol": "β_i", "meaning": "第 i 种危险化学品的校正系数", "unit": "无量纲" },
+      { "symbol": "α", "meaning": "厂区外暴露人员校正系数", "unit": "无量纲" },
+      { "symbol": "R", "meaning": "重大危险源分级指标", "unit": "无量纲" }
+    ],
+    "steps": [
+      "确定单元边界：按工艺装置、储存设施分别划分辨识单元，不得跨单元合并。",
+      "列出单元内全部危险化学品，逐一取实际存在量 q_i（含在线量、储存量、管道存留量）。",
+      "查 GB 18218-2018 附录 A 取各介质的临界量 Q_i。",
+      "按介质类别取校正系数 β_i，按厂区外暴露人员情况取 α。",
+      "按公式求和得 R，按分级表判定级别；R<1 时一般不构成重大危险源（仍需按标准正文确认）。",
+      "形成辨识记录：单元、介质、q、Q、β、α、R、级别、判定人、日期，归档备查。"
+    ],
+    "boundary_note": "单元划分、存在量取值口径（最大在线量还是设计储量）直接影响结论，必须由评价机构按标准正文与企业实际确定。"
+  },
+  "grading": {
+    "confidence": "medium",
+    "note": "分级阈值按 GB 18218-2018 通行表述登记，正式使用前须对照标准正文复核。",
+    "levels": [
+      { "level": "一级", "min": 100, "max": null, "min_inclusive": true, "action": "最高级别，须专项评估、加强监测监控与应急联动" },
+      { "level": "二级", "min": 50, "max": 100, "min_inclusive": true, "action": "须备案、定期评估、设置安全监测监控" },
+      { "level": "三级", "min": 10, "max": 50, "min_inclusive": true, "action": "须备案、定期评估" },
+      { "level": "四级", "min": 1, "max": 10, "min_inclusive": true, "action": "须备案，落实监控措施" },
+      { "level": "未构成", "min": 0, "max": 1, "min_inclusive": true, "action": "R<1 一般不构成重大危险源，仍需按标准正文确认" }
+    ]
+  },
+  "media_thresholds": [
+    {
+      "medium_id": "M-CO",
+      "name": "一氧化碳",
+      "state": "气",
+      "q_unit": "t",
+      "Q": null,
+      "beta": null,
+      "Q_status": "pending",
+      "note": "临界量与校正系数须查 GB 18218-2018 附录 A 与系数表填录；本库不预填，避免误引法定阈值。"
+    },
+    {
+      "medium_id": "M-H2S",
+      "name": "硫化氢",
+      "state": "气",
+      "q_unit": "t",
+      "Q": null,
+      "beta": null,
+      "Q_status": "pending",
+      "note": "剧毒/高毒介质，β 取值与人员暴露校正须特别谨慎。"
+    },
+    {
+      "medium_id": "M-CH4",
+      "name": "甲烷",
+      "state": "气",
+      "q_unit": "t",
+      "Q": null,
+      "beta": null,
+      "Q_status": "pending",
+      "note": "产品天然气与输气系统存量按最大在线量取值。"
+    },
+    {
+      "medium_id": "M-H2",
+      "name": "氢气",
+      "state": "气",
+      "q_unit": "t",
+      "Q": null,
+      "beta": null,
+      "Q_status": "pending"
+    },
+    {
+      "medium_id": "M-NH3",
+      "name": "氨",
+      "state": "气/液",
+      "q_unit": "t",
+      "Q": null,
+      "beta": null,
+      "Q_status": "pending",
+      "note": "脱硝氨区为独立单元，常单独辨识。"
+    },
+    {
+      "medium_id": "M-MEOH",
+      "name": "甲醇（冷凝液）",
+      "state": "液",
+      "q_unit": "t",
+      "Q": null,
+      "beta": null,
+      "Q_status": "pending",
+      "note": "冷凝液中甲醇为组分，是否单列需按实际浓度与存量判断。"
+    }
+  ],
+  "unit_worksheets": [
+    { "unit_id": "U01", "name": "煤炭接收与储存", "media": [], "q_entries": [], "note": "原煤非危险化学品，一般不参与临界量计算" },
+    { "unit_id": "U02", "name": "输煤配煤", "media": [], "q_entries": [], "note": "同上" },
+    { "unit_id": "U03", "name": "磨煤制粉", "media": ["M-CO"], "q_entries": [], "note": "煤粉氧化产生的 CO 存量极小，通常按有毒气体监测管理" },
+    { "unit_id": "U04", "name": "合成气制备（气化炉）", "media": ["M-CO", "M-H2S", "M-H2"], "q_entries": [], "note": "重点单元：粗合成气中 CO/H₂S 为高毒介质，须按最大在线量核算" },
+    { "unit_id": "U05", "name": "合成气净化与变换", "media": ["M-CO", "M-H2S", "M-H2"], "q_entries": [], "note": "含硫介质集中区" },
+    { "unit_id": "U06", "name": "甲烷化", "media": ["M-CH4", "M-H2", "M-CO"], "q_entries": [], "note": "强放热反应器，存量按反应器与管道持气量核算" },
+    { "unit_id": "U07", "name": "冷凝与分离", "media": ["M-CH4", "M-MEOH"], "q_entries": [], "note": "冷凝液罐为独立储存设施，宜单独辨识" },
+    { "unit_id": "U08", "name": "天然气处理与压缩", "media": ["M-CH4"], "q_entries": [], "note": "高压天然气，存量按压缩机与管道持气量核算" },
+    { "unit_id": "U09", "name": "天然气输送与利用", "media": ["M-CH4"], "q_entries": [], "note": "输气站与管线，按站场存量与管段长度折算" },
+    { "unit_id": "U10", "name": "副产物处理与综合利用", "media": [], "q_entries": [], "note": "炉渣、脱硫石膏为一般工业固废，不属于危险化学品" },
+    { "unit_id": "U11", "name": "公用工程（锅炉及烟气处理）", "media": ["M-NH3"], "q_entries": [], "note": "脱硝氨区应作为独立单元辨识" }
+  ],
+  "checklist": [
+    { "id": "C-01", "item": "辨识单元划分是否与总平面布置、工艺边界一致", "done": false },
+    { "id": "C-02", "item": "危险化学品清单是否覆盖全部在线量与储存量", "done": false },
+    { "id": "C-03", "item": "各介质临界量 Q 是否按 GB 18218-2018 附录 A 填录并注明版本", "done": false },
+    { "id": "C-04", "item": "校正系数 β、α 是否按介质类别与厂区外暴露人员情况取值", "done": false },
+    { "id": "C-05", "item": "R 值计算过程是否可复算（保留 q、Q、β、α 原始记录）", "done": false },
+    { "id": "C-06", "item": "判定结论是否经有资质机构或注册安全工程师签署", "done": false },
+    { "id": "C-07", "item": "构成重大危险源的，是否完成备案、评估与监测监控设置", "done": false },
+    { "id": "C-08", "item": "是否与外部安全防护距离（GB/T 37243-2019）结论衔接", "done": false }
+  ],
+  "disclaimer": "本模块只提供计算框架、记录结构与分级口径，不代替法定辨识。临界量、校正系数与单元划分必须由企业会同有资质的安全评价机构按 GB 18218-2018 正文确定，并由注册安全工程师签署。"
+}

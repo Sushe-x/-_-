@@ -1,0 +1,334 @@
+{
+  "$schema": "./schema.json#/definitions/process_units",
+  "kb_version": "1.0.0",
+  "generated_at": "2026-10-30",
+  "source_docs": [
+    "工艺流程.docx",
+    "煤制天然气工艺危险源分析.docx",
+    "LEC法.docx",
+    "应急预案措施.docx"
+  ],
+  "units": [
+    {
+      "id": "U01",
+      "order": 1,
+      "stage": "main",
+      "name": "煤炭接收与储存",
+      "short_name": "煤场",
+      "summary": "原煤通过船舶、车辆运送到厂区，使用卸煤机卸料，输送至煤场堆放储存，保障生产可以连续稳定供煤。",
+      "equipment": [
+        { "name": "卸煤机", "role": "卸船/卸车" },
+        { "name": "煤场", "role": "露天/封闭堆存" },
+        { "name": "堆取料机", "role": "堆料与取料" },
+        { "name": "厂内转运车辆", "role": "短驳" }
+      ],
+      "media_in": ["原煤（船运/汽运）"],
+      "media_out": ["原煤（堆存）"],
+      "conditions": { "temperature": "常温", "pressure": "常压" },
+      "hazard_ids": ["H-U01-01", "H-U01-02", "H-U01-03", "H-U01-04"],
+      "risk_rank": "次要",
+      "is_key_unit": false,
+      "standard_refs": [
+        { "std": "STD-GB15577-2018", "clause": "", "note": "煤尘属于可燃性粉尘，粉尘爆炸危险场所的建（构）筑物布局与清扫要求" },
+        { "std": "STD-GB51428-2021", "clause": "", "note": "煤化工工程储运设施防火" }
+      ],
+      "emergency_ids": ["E-02", "E-04"],
+      "image_ref": "assets/flowchart.jpg#u01",
+      "provenance": { "doc": "工艺流程.docx", "locator": "工序说明 1" }
+    },
+    {
+      "id": "U02",
+      "order": 2,
+      "stage": "main",
+      "name": "输煤配煤",
+      "short_name": "输煤",
+      "summary": "依靠皮带输送机输送原煤，按照工艺要求搭配不同种类煤炭，调配好的煤送入煤仓暂存，供给下一道磨粉工序。",
+      "equipment": [
+        { "name": "皮带输送机", "role": "连续输送" },
+        { "name": "转运站/落料点", "role": "扬尘集中点" },
+        { "name": "配煤设施", "role": "按比例掺配" },
+        { "name": "煤仓", "role": "缓冲暂存" }
+      ],
+      "media_in": ["原煤（煤场）"],
+      "media_out": ["混配原煤（入煤仓）"],
+      "conditions": { "temperature": "常温", "pressure": "常压" },
+      "hazard_ids": ["H-U02-01", "H-U02-02", "H-U02-03"],
+      "risk_rank": "次要",
+      "is_key_unit": false,
+      "standard_refs": [
+        { "std": "STD-GB15577-2018", "clause": "", "note": "输送廊道粉尘积聚与清扫、防止摩擦火花" }
+      ],
+      "emergency_ids": ["E-02"],
+      "image_ref": "assets/flowchart.jpg#u02",
+      "provenance": { "doc": "工艺流程.docx", "locator": "工序说明 2" }
+    },
+    {
+      "id": "U03",
+      "order": 3,
+      "stage": "main",
+      "name": "磨煤制粉",
+      "short_name": "制粉",
+      "summary": "煤仓里的原煤送入磨煤机，研磨成细度符合气化要求的煤粉，细小煤粉可以在气化炉内充分发生反应。",
+      "equipment": [
+        { "name": "磨煤机", "role": "研磨制粉" },
+        { "name": "煤粉仓", "role": "煤粉缓冲" },
+        { "name": "惰性化/氮气保护系统", "role": "防爆惰化" },
+        { "name": "煤粉除尘器", "role": "含尘气净化" }
+      ],
+      "media_in": ["混配原煤"],
+      "media_out": ["煤粉"],
+      "conditions": { "temperature": "设备壳体高温", "pressure": "微负压/常压" },
+      "hazard_ids": ["H-U03-01", "H-U03-02", "H-U03-03"],
+      "risk_rank": "核心",
+      "is_key_unit": true,
+      "key_reason": "原文档明确标注为“本单元高风险，为重点分析对象”；煤粉属爆炸性粉尘，可串燃至煤仓。",
+      "standard_refs": [
+        { "std": "STD-GB15577-2018", "clause": "", "note": "粉尘防爆总则、控爆措施（泄爆/隔爆/抑爆）、除尘系统" },
+        { "std": "STD-GB50160-2008", "clause": "", "note": "可燃气体/粉尘环境下的电气与布置防火要求" }
+      ],
+      "emergency_ids": ["E-02", "E-03"],
+      "image_ref": "assets/flowchart.jpg#u03",
+      "provenance": { "doc": "工艺流程.docx", "locator": "工序说明 3" }
+    },
+    {
+      "id": "U04",
+      "order": 4,
+      "stage": "main",
+      "name": "合成气制备（气化炉）",
+      "short_name": "气化",
+      "summary": "煤粉、氧气、高温蒸汽一同送入气化炉，在高温条件下发生气化反应，生成含有一氧化碳、氢气的粗合成气。",
+      "equipment": [
+        { "name": "气化炉", "role": "核心反应器" },
+        { "name": "烧嘴", "role": "煤粉/氧气/蒸汽入炉" },
+        { "name": "炉衬", "role": "耐火隔热" },
+        { "name": "氧气管道及切断阀", "role": "供氧" },
+        { "name": "蒸汽系统", "role": "供汽/吹扫" },
+        { "name": "渣水系统", "role": "排渣" }
+      ],
+      "media_in": ["煤粉", "氧气", "高温蒸汽"],
+      "media_out": ["粗合成气（CO、H₂、H₂S、CO₂）"],
+      "conditions": { "temperature": "高温", "pressure": "高压" },
+      "hazard_ids": ["H-U04-01", "H-U04-02", "H-U04-03", "H-U04-04"],
+      "risk_rank": "核心",
+      "is_key_unit": true,
+      "key_reason": "原文档标注为“全工艺最高风险单元，核心重点分析”；介质易燃易爆且高毒，操作条件高温高压。",
+      "standard_refs": [
+        { "std": "STD-GB51428-2021", "clause": "", "note": "煤化工气化装置防火与消防设计" },
+        { "std": "STD-GB50160-2008", "clause": "", "note": "甲类可燃气体装置布置与防火间距" },
+        { "std": "STD-GB16912-2008", "clause": "", "note": "氧气管道禁油脂、氧含量控制" },
+        { "std": "STD-GB30871-2022", "clause": "", "note": "停车检修的动火与受限空间作业" },
+        { "std": "STD-GBT50493-2019", "clause": "", "note": "CO/H₂S 有毒气体与可燃气体探测报警" }
+      ],
+      "emergency_ids": ["E-01", "E-02", "E-03", "E-04"],
+      "image_ref": "assets/flowchart.jpg#u04",
+      "provenance": { "doc": "工艺流程.docx", "locator": "工序说明 4" }
+    },
+    {
+      "id": "U05",
+      "order": 5,
+      "stage": "main",
+      "name": "合成气净化与变换",
+      "short_name": "净化变换",
+      "summary": "粗合成气依次经过洗涤除尘、CO变换反应、聚结、分离。除去粉尘、硫化氢等杂质，同时调节氢气和一氧化碳的比例，满足后续甲烷化反应的要求。",
+      "equipment": [
+        { "name": "喷射洗涤器", "role": "粗洗除尘" },
+        { "name": "文丘里洗涤器", "role": "精细除尘" },
+        { "name": "CO变换反应器", "role": "调节 H₂/CO 比" },
+        { "name": "聚结器", "role": "脱除液雾" },
+        { "name": "分离器", "role": "气液分离" }
+      ],
+      "media_in": ["粗合成气"],
+      "media_out": ["净化合成气（H₂/CO 比合格）"],
+      "conditions": { "temperature": "中高温（变换反应）", "pressure": "高压" },
+      "hazard_ids": ["H-U05-01", "H-U05-02", "H-U05-03"],
+      "risk_rank": "主要",
+      "is_key_unit": false,
+      "standard_refs": [
+        { "std": "STD-GBT50493-2019", "clause": "", "note": "H₂S/CO 有毒气体探测器设置" },
+        { "std": "STD-GBZ2.1-2019", "clause": "", "note": "H₂S、CO 职业接触限值" },
+        { "std": "STD-GB50160-2008", "clause": "", "note": "含硫介质设备与管道的防火防腐蚀" }
+      ],
+      "emergency_ids": ["E-01", "E-03"],
+      "image_ref": "assets/flowchart.jpg#u05",
+      "provenance": { "doc": "工艺流程.docx", "locator": "工序说明 5" }
+    },
+    {
+      "id": "U06",
+      "order": 6,
+      "stage": "main",
+      "name": "甲烷化（合成天然气）",
+      "short_name": "甲烷化",
+      "summary": "净化后的合成气送入甲烷化反应器，在催化剂作用下，一氧化碳和氢气发生反应，生成甲烷，得到粗天然气。",
+      "equipment": [
+        { "name": "甲烷化反应器（多台串联）", "role": "CO/CO₂ 加氢生成 CH₄" },
+        { "name": "甲烷化催化剂", "role": "Ni 基催化剂" },
+        { "name": "废热回收/换热器", "role": "移出反应热" }
+      ],
+      "media_in": ["净化合成气"],
+      "media_out": ["粗天然气（CH₄、H₂、CO、H₂O、醇类）"],
+      "conditions": { "temperature": "高温（强放热反应）", "pressure": "高压" },
+      "hazard_ids": ["H-U06-01", "H-U06-02", "H-U06-03"],
+      "risk_rank": "主要",
+      "is_key_unit": true,
+      "key_reason": "原文档标注为“重点风险单元，催化剂反应放热”，存在飞温超压风险。",
+      "standard_refs": [
+        { "std": "STD-GB50160-2008", "clause": "", "note": "可燃气体压缩机与反应器布置" },
+        { "std": "STD-GBT50493-2019", "clause": "", "note": "可燃气体探测报警" }
+      ],
+      "emergency_ids": ["E-01", "E-02", "E-04"],
+      "image_ref": "assets/flowchart.jpg#u06",
+      "provenance": { "doc": "工艺流程.docx", "locator": "工序说明 6" }
+    },
+    {
+      "id": "U07",
+      "order": 7,
+      "stage": "main",
+      "name": "冷凝与分离",
+      "short_name": "冷凝分离",
+      "summary": "粗天然气通入冷凝器降温冷却，把气体里面混有的水、醇类物质冷凝成液体，再通过分离器把液相杂质分离出去。",
+      "equipment": [
+        { "name": "冷凝器", "role": "降温冷凝" },
+        { "name": "分离器", "role": "气液分离" },
+        { "name": "冷凝液收集/储罐", "role": "含水、醇类冷凝液" }
+      ],
+      "media_in": ["粗天然气"],
+      "media_out": ["粗天然气（脱水脱醇后）", "冷凝液（水、醇类）"],
+      "conditions": { "temperature": "低温", "pressure": "高压" },
+      "hazard_ids": ["H-U07-01", "H-U07-02"],
+      "risk_rank": "主要",
+      "is_key_unit": false,
+      "standard_refs": [
+        { "std": "STD-GB50160-2008", "clause": "", "note": "易燃液体冷凝液储运防火" }
+      ],
+      "emergency_ids": ["E-01", "E-02"],
+      "image_ref": "assets/flowchart.jpg#u07",
+      "provenance": { "doc": "工艺流程.docx", "locator": "工序说明 7" }
+    },
+    {
+      "id": "U08",
+      "order": 8,
+      "stage": "main",
+      "name": "天然气处理与压缩",
+      "short_name": "处理压缩",
+      "summary": "气体依次经过干燥塔、脱硫塔、脱碳塔做深度净化，之后经过压缩机加压，得到符合输送标准的成品天然气（CH₄）。",
+      "equipment": [
+        { "name": "干燥塔", "role": "深度脱水" },
+        { "name": "脱硫塔", "role": "脱除含硫组分" },
+        { "name": "脱碳塔", "role": "脱除 CO₂" },
+        { "name": "压缩机", "role": "增压至外输压力" }
+      ],
+      "media_in": ["粗天然气"],
+      "media_out": ["产品天然气（CH₄）"],
+      "conditions": { "temperature": "常温~中温", "pressure": "高压" },
+      "hazard_ids": ["H-U08-01", "H-U08-02", "H-U08-03"],
+      "risk_rank": "主要",
+      "is_key_unit": true,
+      "key_reason": "原文档标注为“重点风险，高压可燃气体”。",
+      "standard_refs": [
+        { "std": "STD-GBT33445-2023", "clause": "", "note": "产品天然气质量指标与检验" },
+        { "std": "STD-GB50160-2008", "clause": "", "note": "可燃气体压缩机厂房防火" },
+        { "std": "STD-GBT50493-2019", "clause": "", "note": "压缩机房可燃气体探测" }
+      ],
+      "emergency_ids": ["E-01", "E-02"],
+      "image_ref": "assets/flowchart.jpg#u08",
+      "provenance": { "doc": "工艺流程.docx", "locator": "工序说明 8" }
+    },
+    {
+      "id": "U09",
+      "order": 9,
+      "stage": "main",
+      "name": "天然气输送与利用",
+      "short_name": "外输",
+      "summary": "成品天然气通过输气站向外输送，作为城市居民燃气、工业燃料，或者送入燃气电厂用来发电。",
+      "equipment": [
+        { "name": "输气站/首站", "role": "计量、调压、外输" },
+        { "name": "调压设备", "role": "压力调节" },
+        { "name": "长输/厂际管线", "role": "输送" },
+        { "name": "清管与放空设施", "role": "维护与泄放" }
+      ],
+      "media_in": ["产品天然气（CH₄）"],
+      "media_out": ["商品天然气（城市燃气/工业燃料/发电）"],
+      "conditions": { "temperature": "常温", "pressure": "高压" },
+      "hazard_ids": ["H-U09-01", "H-U09-02"],
+      "risk_rank": "主要",
+      "is_key_unit": false,
+      "standard_refs": [
+        { "std": "STD-GB50028-2006", "clause": "", "note": "城镇燃气输配系统安全要求" },
+        { "std": "STD-GBT50493-2019", "clause": "", "note": "输气站可燃气体探测" }
+      ],
+      "emergency_ids": ["E-01", "E-02", "E-05"],
+      "image_ref": "assets/flowchart.jpg#u09",
+      "provenance": { "doc": "工艺流程.docx", "locator": "工序说明 9" }
+    },
+    {
+      "id": "U10",
+      "order": 10,
+      "stage": "auxiliary",
+      "name": "副产物处理与综合利用",
+      "short_name": "副产物",
+      "summary": "生产过程产生的炉渣、脱硫石膏统一收集，进行资源化处理，一般用来制作建材，实现固废再利用。",
+      "equipment": [
+        { "name": "炉渣处理/渣场", "role": "冷却、暂存、外运" },
+        { "name": "脱硫石膏综合利用设施", "role": "建材原料" }
+      ],
+      "media_in": ["炉渣", "脱硫石膏"],
+      "media_out": ["建材原料（资源化产品）"],
+      "conditions": { "temperature": "炉渣出炉为高温", "pressure": "常压" },
+      "hazard_ids": ["H-U10-01", "H-U10-02"],
+      "risk_rank": "次要",
+      "is_key_unit": false,
+      "standard_refs": [
+        { "std": "STD-GB18599-2020", "clause": "", "note": "一般工业固体废物贮存与填埋污染控制" }
+      ],
+      "emergency_ids": ["E-06"],
+      "image_ref": "assets/flowchart.jpg#u10",
+      "provenance": { "doc": "工艺流程.docx", "locator": "工序说明 10" }
+    },
+    {
+      "id": "U11",
+      "order": 11,
+      "stage": "auxiliary",
+      "name": "公用工程（锅炉及烟气处理）",
+      "short_name": "公用工程",
+      "summary": "锅炉生产装置需要的高温高压蒸汽；锅炉产生的烟气经过脱硝、除尘、脱硫处理，达标之后再由烟囱排放。",
+      "equipment": [
+        { "name": "锅炉", "role": "生产高温高压蒸汽" },
+        { "name": "脱硝装置（SCR）", "role": "脱除 NOₓ" },
+        { "name": "除尘器（布袋/电除尘）", "role": "除尘" },
+        { "name": "脱硫塔（石灰石-石膏法）", "role": "脱除 SO₂" },
+        { "name": "烟囱", "role": "达标排放" },
+        { "name": "蒸汽管网", "role": "全厂供汽" }
+      ],
+      "media_in": ["燃料/烟气", "除盐水"],
+      "media_out": ["高温高压蒸汽", "净化烟气", "脱硫石膏"],
+      "conditions": { "temperature": "高温高压蒸汽", "pressure": "高压" },
+      "hazard_ids": ["H-U11-01", "H-U11-02", "H-U11-03"],
+      "risk_rank": "次要",
+      "is_key_unit": false,
+      "standard_refs": [
+        { "std": "STD-TSG11-2020", "clause": "", "note": "锅炉使用安全与定期检验" },
+        { "std": "STD-GB13271-2014", "clause": "", "note": "锅炉大气污染物排放限值" },
+        { "std": "STD-GBT50493-2019", "clause": "", "note": "氨区有毒气体探测" }
+      ],
+      "emergency_ids": ["E-02", "E-03", "E-04"],
+      "image_ref": "assets/flowchart.jpg#u11",
+      "provenance": { "doc": "工艺流程.docx", "locator": "工序说明 11" }
+    }
+  ],
+  "links": [
+    { "from": "U01", "to": "U02", "medium": "原煤", "type": "material" },
+    { "from": "U02", "to": "U03", "medium": "混配原煤", "type": "material" },
+    { "from": "U03", "to": "U04", "medium": "煤粉", "type": "material" },
+    { "from": "U04", "to": "U05", "medium": "粗合成气", "type": "material" },
+    { "from": "U05", "to": "U06", "medium": "净化合成气", "type": "material" },
+    { "from": "U06", "to": "U07", "medium": "粗天然气", "type": "material" },
+    { "from": "U07", "to": "U08", "medium": "粗天然气（脱水脱醇）", "type": "material" },
+    { "from": "U08", "to": "U09", "medium": "产品天然气", "type": "material" },
+    { "from": "U11", "to": "U04", "medium": "高温高压蒸汽", "type": "utility" },
+    { "from": "U11", "to": "U06", "medium": "高温高压蒸汽", "type": "utility" },
+    { "from": "U04", "to": "U10", "medium": "炉渣", "type": "byproduct" },
+    { "from": "U11", "to": "U10", "medium": "脱硫石膏", "type": "byproduct" },
+    { "from": "U04", "to": "U05", "medium": "含硫/含尘洗涤水", "type": "wastewater" },
+    { "from": "U07", "to": "U05", "medium": "冷凝液（水、醇类）", "type": "recycle" }
+  ]
+}

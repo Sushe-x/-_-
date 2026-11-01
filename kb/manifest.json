@@ -1,0 +1,178 @@
+{
+  "name": "煤制天然气工艺安全知识库",
+  "name_en": "Coal-to-SNG Process Safety Knowledge Base",
+  "kb_version": "2.0.0",
+  "schema_version": "2.0.0",
+  "generated_at": "2026-10-30",
+  "source_docs": [
+    {
+      "file": "工艺流程.docx",
+      "bytes": 858191,
+      "role": "11 个工艺单元与工序说明（含一张流程图）"
+    },
+    {
+      "file": "煤制天然气工艺危险源分析.docx",
+      "bytes": 14714,
+      "role": "按单元的危险源识别与风险分层"
+    },
+    {
+      "file": "LEC法.docx",
+      "bytes": 10953,
+      "role": "LEC 方法原理、参数表、分级与填写示例"
+    },
+    {
+      "file": "应急预案措施.docx",
+      "bytes": 14616,
+      "role": "七个应急场景的处置步骤与责任岗位"
+    }
+  ],
+  "modules": [
+    {
+      "id": "M1",
+      "file": "process_units.json",
+      "name": "工艺单元",
+      "records": 11,
+      "web_views": [
+        "flow",
+        "unit-detail"
+      ]
+    },
+    {
+      "id": "M2",
+      "file": "hazards.json",
+      "name": "危险源",
+      "records": 32,
+      "web_views": [
+        "hazard-table",
+        "hazard-detail"
+      ]
+    },
+    {
+      "id": "M3",
+      "file": "lec.json",
+      "name": "LEC 风险评价",
+      "records": 32,
+      "web_views": [
+        "lec-table",
+        "lec-calculator"
+      ]
+    },
+    {
+      "id": "M4",
+      "file": "emergency.json",
+      "name": "应急措施",
+      "records": 7,
+      "web_views": [
+        "emergency-timeline",
+        "role-matrix"
+      ]
+    },
+    {
+      "id": "M5",
+      "file": "standards.json",
+      "name": "标准登记",
+      "records": 37,
+      "web_views": [
+        "standard-table"
+      ]
+    },
+    {
+      "id": "M6",
+      "file": "limits.json",
+      "name": "限值字典",
+      "records": 30,
+      "web_views": [
+        "limit-table",
+        "badge"
+      ]
+    },
+    {
+      "id": "M7",
+      "file": "media.json",
+      "name": "介质特性",
+      "records": 10,
+      "web_views": [
+        "media-table"
+      ]
+    },
+    {
+      "id": "M8",
+      "file": "crosswalk.json",
+      "name": "标准核对结论",
+      "records": 26,
+      "web_views": [
+        "crosswalk-table"
+      ]
+    },
+    {
+      "id": "M9",
+      "file": "major_hazard.json",
+      "name": "重大危险源辨识",
+      "records": 11,
+      "web_views": [
+        "major-worksheet",
+        "r-calculator"
+      ]
+    },
+    {
+      "id": "M10",
+      "file": "actions.json",
+      "name": "整改台账",
+      "records": 24,
+      "web_views": [
+        "action-table",
+        "phase-progress"
+      ]
+    },
+    {
+      "id": "M11",
+      "file": "step_risks.json",
+      "name": "按步骤风险与预案",
+      "records": 11,
+      "web_views": [
+        "step-risks",
+        "step-answer"
+      ]
+    }
+  ],
+  "counts": {
+    "units": 11,
+    "hazards": 32,
+    "lec_rows": 32,
+    "scenarios": 7,
+    "steps": 31,
+    "standards": 37,
+    "limits": 30,
+    "media": 10,
+    "findings": 26,
+    "links": 14,
+    "action_items": 24,
+    "units_with_major_hazard_media": 8,
+    "kb_steps": 11,
+    "possible_risks": 64,
+    "impossible_risks": 46
+  },
+  "checksums_sha256_16": {
+    "schema.json": "9eb8b5c8eee37054",
+    "process_units.json": "40a3f8fa519e81be",
+    "hazards.json": "285fb78b8c918436",
+    "lec.json": "49405cd60746d45d",
+    "emergency.json": "8d10bb609d533fc3",
+    "standards.json": "de01a05eb6723624",
+    "limits.json": "13592a7d3b3dd621",
+    "media.json": "b9cc646667d46452",
+    "crosswalk.json": "5a37c59357f44bed",
+    "glossary.json": "d52c43f7b0efae84",
+    "major_hazard.json": "fb62d5b6659df603",
+    "actions.json": "a51ac2d300738dfd",
+    "step_risks.json": "93c4cc48c4fcdb5f"
+  },
+  "json_schema": "schema.json",
+  "sqlite": "coal_to_sng.sqlite",
+  "integrity": {
+    "validated": true,
+    "errors": 0,
+    "validated_at": "2026-10-30",
+    "validator": "../validate_kb.py"
+  }
+}

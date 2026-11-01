@@ -1,0 +1,13 @@
+{
+  "name": "coal-to-sng-public",
+  "version": "2.0.0",
+  "private": true,
+  "description": "煤制天然气风险查询（公开版）：静态页面 + 受限模型问答代理",
+  "type": "module",
+  "scripts": {
+    "start": "node server/server.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

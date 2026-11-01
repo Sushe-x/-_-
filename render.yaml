@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: coal-to-sng-public
+    runtime: node
+    plan: free
+    buildCommand: "echo no-build"
+    startCommand: "node server/server.mjs"
+    healthCheckPath: /api/health
+    envVars:
+      - key: LLM_BASE_URL
+        value: https://api.deepseek.com/v1
+      - key: LLM_MODEL
+        value: deepseek-chat
+      - key: LLM_API_KEY
+        sync: false          # 在 Render 后台填，不写进仓库
+      - key: RATE_PER_MIN
+        value: "4"
+      - key: RATE_PER_DAY
+        value: "30"
+      - key: GLOBAL_PER_DAY
+        value: "800"
+      - key: MAX_TOKENS
+        value: "700"

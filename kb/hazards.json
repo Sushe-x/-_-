@@ -1,0 +1,1622 @@
+{
+  "$schema": "./schema.json#/definitions/hazards",
+  "kb_version": "1.0.0",
+  "ordering_rule": "按工艺顺序 U01→U11；单元内按原文档列举顺序；emphasis 保留原文标注（重大重点/重点/一般）。",
+  "hazards": [
+    {
+      "id": "H-U01-01",
+      "unit_id": "U01",
+      "title": "煤堆自燃火灾",
+      "category": "火灾",
+      "gb6441_class": "火灾",
+      "occupational": false,
+      "emphasis": "重点",
+      "risk_rank": "次要",
+      "mechanism": "原煤、煤粉堆积，氧化蓄热易发生煤堆自燃，产生一氧化碳有毒烟气，引发火灾。",
+      "media": [
+        "原煤"
+      ],
+      "consequences": [
+        "煤场火灾",
+        "CO 有毒烟气扩散",
+        "供煤中断"
+      ],
+      "targets": [
+        "人员",
+        "设备",
+        "环境"
+      ],
+      "detection": [
+        "煤堆温度监测",
+        "CO 气体探测",
+        "红外测温/巡测"
+      ],
+      "limits": [
+        "LMT-OEL_CO_TWA"
+      ],
+      "control_supplements": [
+        {
+          "text": "煤场按分区堆存、控制堆高与堆存时间，定期倒堆降温。",
+          "std": "STD-GB51428-2021"
+        },
+        {
+          "text": "煤场设置消防给水与灭火器材，保持消防通道畅通。",
+          "std": "STD-GB51428-2021"
+        },
+        {
+          "text": "煤场作业区严禁明火与吸烟，动火须办理作业票。",
+          "std": "STD-GB30871-2022"
+        }
+      ],
+      "emergency_ids": [
+        "E-02",
+        "E-06"
+      ],
+      "lec_id": "L-U01-01",
+      "provenance": {
+        "doc": "煤制天然气工艺危险源分析.docx",
+        "locator": "一、1"
+      }
+    },
+    {
+      "id": "H-U01-02",
+      "unit_id": "U01",
+      "title": "煤尘爆炸",
+      "category": "粉尘爆炸",
+      "gb6441_class": "其他爆炸",
+      "occupational": false,
+      "emphasis": "重点",
+      "risk_rank": "次要",
+      "mechanism": "卸料、堆料作业产生大量煤尘，达到爆炸极限遇点火源会发生粉尘爆炸。",
+      "media": [
+        "煤尘"
+      ],
+      "consequences": [
+        "粉尘爆炸",
+        "伴随火焰传播与二次爆炸",
+        "建筑物损毁"
+      ],
+      "targets": [
+        "人员",
+        "设备"
+      ],
+      "detection": [
+        "粉尘浓度监测",
+        "防爆电气与静电接地检查"
+      ],
+      "limits": [
+        "LMT-DUST_LEL_COAL"
+      ],
+      "control_supplements": [
+        {
+          "text": "煤尘爆炸危险场所按 GB 15577-2018 采取泄爆、隔爆、抑爆等控爆措施。",
+          "std": "STD-GB15577-2018"
+        },
+        {
+          "text": "除尘系统采用防爆型设备，风管设置泄爆装置，禁止使用非防爆电气。",
+          "std": "STD-GB15577-2018"
+        },
+        {
+          "text": "作业区定期清扫积尘，禁止用压缩空气吹扫，防止形成粉尘云。",
+          "std": "STD-GB15577-2018"
+        },
+        {
+          "text": "按爆炸危险区域划分选用电气设备。",
+          "std": "STD-GB50058-2014"
+        }
+      ],
+      "emergency_ids": [
+        "E-02",
+        "E-03"
+      ],
+      "lec_id": "L-U01-02",
+      "provenance": {
+        "doc": "煤制天然气工艺危险源分析.docx",
+        "locator": "一、2"
+      }
+    },
+    {
+      "id": "H-U01-03",
+      "unit_id": "U01",
+      "title": "机械伤害（卸煤机、转运设备）",
+      "category": "机械伤害",
+      "gb6441_class": "机械伤害",
+      "occupational": false,
+      "emphasis": "一般",
+      "risk_rank": "轻微",
+      "mechanism": "卸煤机、转运设备，人员误接触可造成挤压磕碰；车辆装卸碰撞风险，风险程度一般。",
+      "media": [
+        "卸煤机",
+        "转运设备",
+        "运输车辆"
+      ],
+      "consequences": [
+        "挤压伤",
+        "碰撞伤"
+      ],
+      "targets": [
+        "人员"
+      ],
+      "detection": [
+        "设备防护罩与急停装置",
+        "限位与联锁"
+      ],
+      "limits": [],
+      "control_supplements": [
+        {
+          "text": "转动部位设置防护罩，检修执行停机挂牌上锁。",
+          "std": "STD-GB51428-2021"
+        },
+        {
+          "text": "厂内运输车辆限速、设置人行通道与警示标志。",
+          "std": "STD-GB51428-2021"
+        }
+      ],
+      "emergency_ids": [
+        "E-06"
+      ],
+      "lec_id": "L-U01-03",
+      "provenance": {
+        "doc": "煤制天然气工艺危险源分析.docx",
+        "locator": "一、3"
+      }
+    },
+    {
+      "id": "H-U01-04",
+      "unit_id": "U01",
+      "title": "煤堆坍塌掩埋",
+      "category": "坍塌",
+      "gb6441_class": "坍塌",
+      "occupational": false,
+      "emphasis": "一般",
+      "risk_rank": "轻微",
+      "mechanism": "煤场堆煤边坡垮塌掩埋人员，风险中等。",
+      "media": [
+        "煤堆"
+      ],
+      "consequences": [
+        "人员掩埋窒息",
+        "设备损坏"
+      ],
+      "targets": [
+        "人员"
+      ],
+      "detection": [
+        "边坡位移/裂缝巡查",
+        "堆高与坡度控制"
+      ],
+      "limits": [],
+      "control_supplements": [
+        {
+          "text": "按设计堆高与安息角控制边坡，禁止在边坡底部停留或作业。",
+          "std": "STD-GB51428-2021"
+        },
+        {
+          "text": "取料作业自上而下分层进行，禁止掏挖。",
+          "std": "STD-GB51428-2021"
+        }
+      ],
+      "emergency_ids": [
+        "E-06"
+      ],
+      "lec_id": "L-U01-04",
+      "provenance": {
+        "doc": "煤制天然气工艺危险源分析.docx",
+        "locator": "一、4"
+      }
+    },
+    {
+      "id": "H-U02-01",
+      "unit_id": "U02",
+      "title": "煤尘爆炸、火灾（输煤廊道）",
+      "category": "粉尘爆炸",
+      "gb6441_class": "其他爆炸",
+      "occupational": false,
+      "emphasis": "重点",
+      "risk_rank": "次要",
+      "mechanism": "皮带转运、落料点持续产生煤粉尘，密闭廊道内粉尘积聚，遇静电、摩擦火花发生爆炸起火。",
+      "media": [
+        "煤尘"
+      ],
+      "consequences": [
+        "粉尘爆炸",
+        "廊道火灾",
+        "输送系统损毁"
+      ],
+      "targets": [
+        "人员",
+        "设备"
+      ],
+      "detection": [
+        "防爆电气",
+        "静电接地",
+        "温度/打滑监测"
+      ],
+      "limits": [
+        "LMT-DUST_LEL_COAL"
+      ],
+      "control_supplements": [
+        {
+          "text": "输煤廊道设置除尘与清扫制度，积尘厚度受控。",
+          "std": "STD-GB15577-2018"
+        },
+        {
+          "text": "皮带机设置防打滑、防跑偏、防堵塞与急停装置。",
+          "std": "STD-GB15577-2018"
+        },
+        {
+          "text": "廊道内电气设备按粉尘爆炸危险区域选型并可靠接地。",
+          "std": "STD-GB50058-2014"
+        }
+      ],
+      "emergency_ids": [
+        "E-02"
+      ],
+      "lec_id": "L-U02-01",
+      "provenance": {
+        "doc": "煤制天然气工艺危险源分析.docx",
+        "locator": "二、1"
+      }
+    },
+    {
+      "id": "H-U02-02",
+      "unit_id": "U02",
+      "title": "皮带卷入机械伤害",
+      "category": "机械伤害",
+      "gb6441_class": "机械伤害",
+      "occupational": false,
+      "emphasis": "一般",
+      "risk_rank": "轻微",
+      "mechanism": "皮带输送机卷入伤害，属于常见一般风险。",
+      "media": [
+        "皮带输送机"
+      ],
+      "consequences": [
+        "卷入绞伤",
+        "断肢"
+      ],
+      "targets": [
+        "人员"
+      ],
+      "detection": [
+        "拉绳急停",
+        "防护罩",
+        "联锁"
+      ],
+      "limits": [],
+      "control_supplements": [
+        {
+          "text": "滚筒、托辊等转动部位设防护罩，沿线设拉绳急停。",
+          "std": "STD-GB51428-2021"
+        },
+        {
+          "text": "运行中禁止跨越、清扫与检修皮带。",
+          "std": "STD-GB30871-2022"
+        }
+      ],
+      "emergency_ids": [
+        "E-06"
+      ],
+      "lec_id": "L-U02-02",
+      "provenance": {
+        "doc": "煤制天然气工艺危险源分析.docx",
+        "locator": "二、2"
+      }
+    },
+    {
+      "id": "H-U02-03",
+      "unit_id": "U02",
+      "title": "噪声职业危害",
+      "category": "噪声",
+      "gb6441_class": null,
+      "occupational": true,
+      "emphasis": "一般",
+      "risk_rank": "轻微",
+      "mechanism": "输送设备噪声，职业健康轻微风险。",
+      "media": [
+        "输送设备"
+      ],
+      "consequences": [
+        "噪声聋（长期暴露）"
+      ],
+      "targets": [
+        "人员"
+      ],
+      "detection": [
+        "工作场所噪声检测",
+        "听力检查"
+      ],
+      "limits": [
+        "LMT-OEL_NOISE"
+      ],
+      "control_supplements": [
+        {
+          "text": "高噪声岗位配备耳塞/耳罩，并设置噪声危害警示标识。",
+          "std": "STD-GB39800.1-2020"
+        },
+        {
+          "text": "按 GBZ 1-2010 控制工作场所噪声强度并定期检测。",
+          "std": "STD-GBZ1-2010"
+        }
+      ],
+      "emergency_ids": [],
+      "lec_id": "L-U02-03",
+      "provenance": {
+        "doc": "煤制天然气工艺危险源分析.docx",
+        "locator": "二、3"
+      }
+    },
+    {
+      "id": "H-U03-01",
+      "unit_id": "U03",
+      "title": "煤粉爆炸（重大）",
+      "category": "粉尘爆炸",
+      "gb6441_class": "其他爆炸",
+      "occupational": false,
+      "emphasis": "重大重点",
+      "risk_rank": "核心",
+      "mechanism": "磨煤机产出干燥超细煤粉，煤粉属于爆炸性粉尘。磨煤机内部积粉、过热、外来火源，极易发生煤粉爆炸、闪燃，可串燃至煤仓。",
+      "media": [
+        "煤粉"
+      ],
+      "consequences": [
+        "煤粉爆炸",
+        "闪燃",
+        "串燃至煤仓",
+        "设备与建构筑物损毁"
+      ],
+      "targets": [
+        "人员",
+        "设备"
+      ],
+      "detection": [
+        "磨煤机出口温度",
+        "煤粉仓温度/CO",
+        "惰性气体（N₂）保护",
+        "氧含量"
+      ],
+      "limits": [
+        "LMT-DUST_LEL_COAL",
+        "LMT-INERT_O2_MAX"
+      ],
+      "control_supplements": [
+        {
+          "text": "磨煤制粉系统设置惰性气体保护，控制氧含量在限值以下。",
+          "std": "STD-GB15577-2018"
+        },
+        {
+          "text": "煤粉仓、除尘器设置泄爆装置，管道设置隔爆/阻火装置。",
+          "std": "STD-GB15577-2018"
+        },
+        {
+          "text": "严格控制磨煤机出口温度与积粉，设置超温报警联锁。",
+          "std": "STD-GB15577-2018"
+        },
+        {
+          "text": "煤粉系统电气设备按粉尘爆炸危险区域选型。",
+          "std": "STD-GB50058-2014"
+        }
+      ],
+      "emergency_ids": [
+        "E-02",
+        "E-03"
+      ],
+      "lec_id": "L-U03-01",
+      "provenance": {
+        "doc": "煤制天然气工艺危险源分析.docx",
+        "locator": "三、1"
+      }
+    },
+    {
+      "id": "H-U03-02",
+      "unit_id": "U03",
+      "title": "一氧化碳中毒、窒息",
+      "category": "中毒和窒息",
+      "gb6441_class": "中毒和窒息",
+      "occupational": false,
+      "emphasis": "重点",
+      "risk_rank": "核心",
+      "mechanism": "煤粉氧化产生CO泄漏，磨煤系统惰性保护失效时有毒气体积聚。",
+      "media": [
+        "CO",
+        "N₂（惰化气）"
+      ],
+      "consequences": [
+        "急性CO中毒",
+        "缺氧窒息"
+      ],
+      "targets": [
+        "人员"
+      ],
+      "detection": [
+        "CO 有毒气体探测报警",
+        "氧含量检测",
+        "受限空间作业前检测"
+      ],
+      "limits": [
+        "LMT-OEL_CO_TWA",
+        "LMT-OEL_CO_STEL"
+      ],
+      "control_supplements": [
+        {
+          "text": "磨煤系统与煤粉仓设置 CO 探测报警，报警信号送中控室。",
+          "std": "STD-GBT50493-2019"
+        },
+        {
+          "text": "进入磨煤机、煤粉仓等受限空间执行“先通风、再检测、后作业”，并设监护人。",
+          "std": "STD-GB30871-2022"
+        }
+      ],
+      "emergency_ids": [
+        "E-03"
+      ],
+      "lec_id": "L-U03-02",
+      "provenance": {
+        "doc": "煤制天然气工艺危险源分析.docx",
+        "locator": "三、2"
+      }
+    },
+    {
+      "id": "H-U03-03",
+      "unit_id": "U03",
+      "title": "高温烫伤（磨煤机壳体）",
+      "category": "灼烫",
+      "gb6441_class": "灼烫",
+      "occupational": false,
+      "emphasis": "一般",
+      "risk_rank": "轻微",
+      "mechanism": "磨煤机设备壳体高温，一般风险。",
+      "media": [
+        "高温设备壳体"
+      ],
+      "consequences": [
+        "接触烫伤"
+      ],
+      "targets": [
+        "人员"
+      ],
+      "detection": [
+        "保温层完好性检查",
+        "表面温度检测"
+      ],
+      "limits": [],
+      "control_supplements": [
+        {
+          "text": "高温表面设置保温与防烫隔离，并设警示标识。",
+          "std": "STD-GBZ1-2010"
+        }
+      ],
+      "emergency_ids": [
+        "E-06"
+      ],
+      "lec_id": "L-U03-03",
+      "provenance": {
+        "doc": "煤制天然气工艺危险源分析.docx",
+        "locator": "三、3"
+      }
+    },
+    {
+      "id": "H-U04-01",
+      "unit_id": "U04",
+      "title": "合成气火灾爆炸（重大）",
+      "category": "爆炸",
+      "gb6441_class": "其他爆炸",
+      "occupational": false,
+      "emphasis": "重大风险",
+      "risk_rank": "核心",
+      "mechanism": "气化炉为高温高压反应设备，介质一氧化碳、氢气爆炸极限范围宽。设备、管道腐蚀磨损泄漏后，合成气遇空气、点火源即发生燃烧爆炸；停车置换不彻底，空气窜入气化炉会发生炉内爆燃。",
+      "media": [
+        "CO",
+        "H₂",
+        "粗合成气"
+      ],
+      "consequences": [
+        "燃爆",
+        "炉内爆燃",
+        "人员伤亡",
+        "装置损毁"
+      ],
+      "targets": [
+        "人员",
+        "设备",
+        "停产"
+      ],
+      "detection": [
+        "可燃气体探测报警",
+        "压力/温度联锁",
+        "氧含量监测（置换）"
+      ],
+      "limits": [
+        "LMT-LEL_CO",
+        "LMT-LEL_H2",
+        "LMT-PURGE_O2_MAX"
+      ],
+      "control_supplements": [
+        {
+          "text": "气化框架、压缩机房等按 GB 50160-2008 划分爆炸危险区域并设置可燃气体探测。",
+          "std": "STD-GB50160-2008"
+        },
+        {
+          "text": "开停车严格执行氮气置换，置换合格（可燃气体与氧含量达标）后方可投料或动火。",
+          "std": "STD-GB30871-2022"
+        },
+        {
+          "text": "设置安全联锁与紧急停车系统（ESD），超温超压自动切断。",
+          "std": "STD-GB51428-2021"
+        },
+        {
+          "text": "检修动火前办理动火作业票，动火点可燃气体浓度合格。",
+          "std": "STD-GB30871-2022"
+        }
+      ],
+      "emergency_ids": [
+        "E-01",
+        "E-02",
+        "E-04"
+      ],
+      "lec_id": "L-U04-01",
+      "provenance": {
+        "doc": "煤制天然气工艺危险源分析.docx",
+        "locator": "四、1"
+      }
+    },
+    {
+      "id": "H-U04-02",
+      "unit_id": "U04",
+      "title": "有毒物质中毒（CO、H₂S）",
+      "category": "中毒和窒息",
+      "gb6441_class": "中毒和窒息",
+      "occupational": false,
+      "emphasis": "重大风险",
+      "risk_rank": "核心",
+      "mechanism": "粗合成气含有高浓度一氧化碳、硫化氢。设备法兰、阀门、烧嘴密封失效泄漏，可造成人员急性中毒甚至死亡；检修未彻底置换，进入受限空间极易中毒。",
+      "media": [
+        "CO",
+        "H₂S"
+      ],
+      "consequences": [
+        "急性中毒",
+        "昏迷",
+        "死亡"
+      ],
+      "targets": [
+        "人员"
+      ],
+      "detection": [
+        "CO/H₂S 有毒气体探测报警",
+        "密闭空间检测",
+        "便携式检测仪"
+      ],
+      "limits": [
+        "LMT-OEL_CO_TWA",
+        "LMT-OEL_CO_STEL",
+        "LMT-OEL_H2S_MAC"
+      ],
+      "control_supplements": [
+        {
+          "text": "按 GB/T 50493-2019 在可能泄漏点设置 H₂S、CO 有毒气体探测器，报警信号送中控室。",
+          "std": "STD-GBT50493-2019"
+        },
+        {
+          "text": "进入受限空间前检测氧含量、可燃气体与有毒气体，合格并办理作业票后方可进入。",
+          "std": "STD-GB30871-2022"
+        },
+        {
+          "text": "配备正压式空气呼吸器与便携式四合一检测仪，作业全程监护。",
+          "std": "STD-GB39800.1-2020"
+        }
+      ],
+      "emergency_ids": [
+        "E-01",
+        "E-03"
+      ],
+      "lec_id": "L-U04-02",
+      "provenance": {
+        "doc": "煤制天然气工艺危险源分析.docx",
+        "locator": "四、2"
+      }
+    },
+    {
+      "id": "H-U04-03",
+      "unit_id": "U04",
+      "title": "高温灼烫、高压喷射伤害",
+      "category": "灼烫",
+      "gb6441_class": "灼烫",
+      "occupational": false,
+      "emphasis": "重点",
+      "risk_rank": "核心",
+      "mechanism": "高温高压物料泄漏形成喷射流，造成烫伤、冲击伤害；气化炉炉衬损坏，存在炉体超温损坏风险。",
+      "media": [
+        "高温高压合成气",
+        "熔渣"
+      ],
+      "consequences": [
+        "烫伤",
+        "冲击伤",
+        "炉体超温损坏"
+      ],
+      "targets": [
+        "人员",
+        "设备"
+      ],
+      "detection": [
+        "炉壁温度监测",
+        "炉衬厚度检测",
+        "泄漏监测"
+      ],
+      "limits": [],
+      "control_supplements": [
+        {
+          "text": "气化炉设置炉壁温度监测与超温报警，定期检测炉衬厚度。",
+          "std": "STD-GB51428-2021"
+        },
+        {
+          "text": "高温管道与设备保温，设置防烫警示与隔离。",
+          "std": "STD-GBZ1-2010"
+        }
+      ],
+      "emergency_ids": [
+        "E-04",
+        "E-06"
+      ],
+      "lec_id": "L-U04-03",
+      "provenance": {
+        "doc": "煤制天然气工艺危险源分析.docx",
+        "locator": "四、3"
+      }
+    },
+    {
+      "id": "H-U04-04",
+      "unit_id": "U04",
+      "title": "蒸汽、氧气系统风险",
+      "category": "爆炸",
+      "gb6441_class": "其他爆炸",
+      "occupational": false,
+      "emphasis": "重点",
+      "risk_rank": "核心",
+      "mechanism": "氧气管道泄漏遇油脂可燃物发生燃爆；高压蒸汽泄漏烫伤。",
+      "media": [
+        "O₂",
+        "高压蒸汽"
+      ],
+      "consequences": [
+        "氧气管线燃爆",
+        "蒸汽烫伤"
+      ],
+      "targets": [
+        "人员",
+        "设备"
+      ],
+      "detection": [
+        "氧含量/压力监测",
+        "管道泄漏检查"
+      ],
+      "limits": [
+        "LMT-O2_PIPE_OIL_FREE"
+      ],
+      "control_supplements": [
+        {
+          "text": "氧气管道及阀门、垫片严格禁油，安装前脱脂并验收。",
+          "std": "STD-GB16912-2008"
+        },
+        {
+          "text": "氧气管道流速与材质按 GB 16912-2008 控制，设置阻火与放空设施。",
+          "std": "STD-GB16912-2008"
+        },
+        {
+          "text": "蒸汽管道保温并设置防烫标识，疏水与超压保护齐全。",
+          "std": "STD-TSG11-2020"
+        }
+      ],
+      "emergency_ids": [
+        "E-04",
+        "E-06"
+      ],
+      "lec_id": "L-U04-04",
+      "provenance": {
+        "doc": "煤制天然气工艺危险源分析.docx",
+        "locator": "四、4"
+      }
+    },
+    {
+      "id": "H-U05-01",
+      "unit_id": "U05",
+      "title": "有毒气体泄漏中毒（洗涤、变换、分离）",
+      "category": "中毒和窒息",
+      "gb6441_class": "中毒和窒息",
+      "occupational": false,
+      "emphasis": "重点",
+      "risk_rank": "主要",
+      "mechanism": "硫化氢、一氧化碳在洗涤、变换、聚结分离器设备泄漏，硫化氢少量即可致人中毒昏迷。",
+      "media": [
+        "H₂S",
+        "CO"
+      ],
+      "consequences": [
+        "急性中毒",
+        "昏迷",
+        "死亡"
+      ],
+      "targets": [
+        "人员"
+      ],
+      "detection": [
+        "H₂S/CO 有毒气体探测",
+        "便携式检测仪"
+      ],
+      "limits": [
+        "LMT-OEL_H2S_MAC",
+        "LMT-OEL_CO_TWA"
+      ],
+      "control_supplements": [
+        {
+          "text": "含硫介质设备区设置 H₂S 探测报警，报警值按 GB/T 50493-2019 设定。",
+          "std": "STD-GBT50493-2019"
+        },
+        {
+          "text": "含硫化氢物料采样、脱水、排污作业使用密闭采样与正压防护。",
+          "std": "STD-GB30871-2022"
+        }
+      ],
+      "emergency_ids": [
+        "E-01",
+        "E-03"
+      ],
+      "lec_id": "L-U05-01",
+      "provenance": {
+        "doc": "煤制天然气工艺危险源分析.docx",
+        "locator": "五、1"
+      }
+    },
+    {
+      "id": "H-U05-02",
+      "unit_id": "U05",
+      "title": "火灾爆炸与变换炉飞温超压",
+      "category": "爆炸",
+      "gb6441_class": "其他爆炸",
+      "occupational": false,
+      "emphasis": "重点",
+      "risk_rank": "主要",
+      "mechanism": "合成气介质泄漏，形成爆炸性混合气体；CO变换反应器存在超温飞温风险，催化剂异常可造成反应器超压。",
+      "media": [
+        "粗合成气",
+        "CO",
+        "H₂"
+      ],
+      "consequences": [
+        "可燃气体爆炸",
+        "反应器超压",
+        "催化剂损坏"
+      ],
+      "targets": [
+        "人员",
+        "设备"
+      ],
+      "detection": [
+        "可燃气体探测",
+        "床层温度多点监测",
+        "压力联锁"
+      ],
+      "limits": [
+        "LMT-LEL_CO",
+        "LMT-LEL_H2"
+      ],
+      "control_supplements": [
+        {
+          "text": "变换反应器设置床层超温报警与联锁，蒸汽/冷激调节可靠。",
+          "std": "STD-GB51428-2021"
+        },
+        {
+          "text": "反应器设置安全阀/泄压设施，定期校验。",
+          "std": "STD-TSG21-2016"
+        }
+      ],
+      "emergency_ids": [
+        "E-01",
+        "E-02",
+        "E-04"
+      ],
+      "lec_id": "L-U05-02",
+      "provenance": {
+        "doc": "煤制天然气工艺危险源分析.docx",
+        "locator": "五、2"
+      }
+    },
+    {
+      "id": "H-U05-03",
+      "unit_id": "U05",
+      "title": "酸性介质腐蚀泄漏",
+      "category": "腐蚀",
+      "gb6441_class": "中毒和窒息",
+      "occupational": false,
+      "emphasis": "一般",
+      "risk_rank": "主要",
+      "mechanism": "酸性介质对设备管线腐蚀，造成物料外泄；机泵机械伤害为普通风险，简要带过。",
+      "media": [
+        "含硫酸性气",
+        "酸性水"
+      ],
+      "consequences": [
+        "物料外泄",
+        "中毒/着火次生事故"
+      ],
+      "targets": [
+        "人员",
+        "设备",
+        "环境"
+      ],
+      "detection": [
+        "腐蚀减薄检测（测厚）",
+        "在线腐蚀监测"
+      ],
+      "limits": [],
+      "control_supplements": [
+        {
+          "text": "按介质选材并设置腐蚀裕量，定期测厚与检验。",
+          "std": "STD-TSG21-2016"
+        },
+        {
+          "text": "酸性水/酸性气系统设置泄漏检测与围堰。",
+          "std": "STD-GBT50483-2019"
+        }
+      ],
+      "emergency_ids": [
+        "E-01",
+        "E-05"
+      ],
+      "lec_id": "L-U05-03",
+      "provenance": {
+        "doc": "煤制天然气工艺危险源分析.docx",
+        "locator": "五、3"
+      }
+    },
+    {
+      "id": "H-U06-01",
+      "unit_id": "U06",
+      "title": "甲烷化火灾爆炸（飞温超压）",
+      "category": "爆炸",
+      "gb6441_class": "其他爆炸",
+      "occupational": false,
+      "emphasis": "重点",
+      "risk_rank": "主要",
+      "mechanism": "反应物氢气、一氧化碳，产物甲烷均易燃易爆；甲烷化是强放热反应，催化剂飞温会造成设备超压，设备泄漏后可燃气体扩散爆炸。",
+      "media": [
+        "H₂",
+        "CO",
+        "CH₄"
+      ],
+      "consequences": [
+        "可燃气体爆炸",
+        "反应器超压",
+        "催化剂烧结"
+      ],
+      "targets": [
+        "人员",
+        "设备"
+      ],
+      "detection": [
+        "床层温度多点监测",
+        "可燃气体探测",
+        "压力联锁"
+      ],
+      "limits": [
+        "LMT-LEL_H2",
+        "LMT-LEL_CH4"
+      ],
+      "control_supplements": [
+        {
+          "text": "甲烷化反应器设置超温联锁与紧急切断，防止飞温。",
+          "std": "STD-GB51428-2021"
+        },
+        {
+          "text": "反应器设置安全阀与泄压系统，定期校验。",
+          "std": "STD-TSG21-2016"
+        },
+        {
+          "text": "甲烷化厂房设置可燃气体探测报警与强制通风。",
+          "std": "STD-GBT50493-2019"
+        }
+      ],
+      "emergency_ids": [
+        "E-01",
+        "E-02",
+        "E-04"
+      ],
+      "lec_id": "L-U06-01",
+      "provenance": {
+        "doc": "煤制天然气工艺危险源分析.docx",
+        "locator": "六、1"
+      }
+    },
+    {
+      "id": "H-U06-02",
+      "unit_id": "U06",
+      "title": "窒息、中毒（CO/CH₄）",
+      "category": "中毒和窒息",
+      "gb6441_class": "中毒和窒息",
+      "occupational": false,
+      "emphasis": "一般",
+      "risk_rank": "主要",
+      "mechanism": "合成气泄漏CO中毒；密闭空间内甲烷泄漏置换氧气，引发单纯窒息。",
+      "media": [
+        "CO",
+        "CH₄"
+      ],
+      "consequences": [
+        "CO 中毒",
+        "缺氧窒息"
+      ],
+      "targets": [
+        "人员"
+      ],
+      "detection": [
+        "CO 探测",
+        "氧含量检测"
+      ],
+      "limits": [
+        "LMT-OEL_CO_TWA",
+        "LMT-O2_DEFICIENCY"
+      ],
+      "control_supplements": [
+        {
+          "text": "密闭空间作业前检测氧含量与有毒气体，设监护人。",
+          "std": "STD-GB30871-2022"
+        }
+      ],
+      "emergency_ids": [
+        "E-03"
+      ],
+      "lec_id": "L-U06-02",
+      "provenance": {
+        "doc": "煤制天然气工艺危险源分析.docx",
+        "locator": "六、2"
+      }
+    },
+    {
+      "id": "H-U06-03",
+      "unit_id": "U06",
+      "title": "催化剂高温烫伤、法兰密封点泄漏",
+      "category": "灼烫",
+      "gb6441_class": "灼烫",
+      "occupational": false,
+      "emphasis": "一般",
+      "risk_rank": "主要",
+      "mechanism": "催化剂高温烫伤，管线法兰密封点泄漏，一般附属风险简略。",
+      "media": [
+        "高温反应器",
+        "催化剂"
+      ],
+      "consequences": [
+        "烫伤",
+        "可燃气体泄漏"
+      ],
+      "targets": [
+        "人员"
+      ],
+      "detection": [
+        "表面温度检测",
+        "泄漏检测"
+      ],
+      "limits": [],
+      "control_supplements": [
+        {
+          "text": "反应器与高温管线保温，设防烫警示。",
+          "std": "STD-GBZ1-2010"
+        }
+      ],
+      "emergency_ids": [
+        "E-04",
+        "E-06"
+      ],
+      "lec_id": "L-U06-03",
+      "provenance": {
+        "doc": "煤制天然气工艺危险源分析.docx",
+        "locator": "六、3"
+      }
+    },
+    {
+      "id": "H-U07-01",
+      "unit_id": "U07",
+      "title": "可燃介质泄漏与冷凝液火灾",
+      "category": "火灾",
+      "gb6441_class": "火灾",
+      "occupational": false,
+      "emphasis": "重点",
+      "risk_rank": "主要",
+      "mechanism": "含甲烷、CO、醇类冷凝液，设备泄漏会释放可燃蒸汽；冷凝液属于易燃液体，存在液体火灾风险。",
+      "media": [
+        "CH₄",
+        "CO",
+        "醇类冷凝液"
+      ],
+      "consequences": [
+        "可燃蒸汽泄漏",
+        "液体火灾",
+        "中毒"
+      ],
+      "targets": [
+        "人员",
+        "设备",
+        "环境"
+      ],
+      "detection": [
+        "可燃气体探测",
+        "液位/温度监测"
+      ],
+      "limits": [
+        "LMT-LEL_CH4",
+        "LMT-LEL_METHANOL"
+      ],
+      "control_supplements": [
+        {
+          "text": "冷凝液储罐设置呼吸阀、氮封与防火堤。",
+          "std": "STD-GB50160-2008"
+        },
+        {
+          "text": "冷凝液外送按易燃液体管理，防静电接地。",
+          "std": "STD-GB50160-2008"
+        }
+      ],
+      "emergency_ids": [
+        "E-01",
+        "E-02",
+        "E-05"
+      ],
+      "lec_id": "L-U07-01",
+      "provenance": {
+        "doc": "煤制天然气工艺危险源分析.docx",
+        "locator": "七、1"
+      }
+    },
+    {
+      "id": "H-U07-02",
+      "unit_id": "U07",
+      "title": "低温冻伤",
+      "category": "低温伤害",
+      "gb6441_class": "其他伤害",
+      "occupational": false,
+      "emphasis": "一般",
+      "risk_rank": "主要",
+      "mechanism": "冷凝器低温表面冻伤，风险一般。",
+      "media": [
+        "低温设备表面"
+      ],
+      "consequences": [
+        "冻伤"
+      ],
+      "targets": [
+        "人员"
+      ],
+      "detection": [
+        "表面温度检测",
+        "保温层检查"
+      ],
+      "limits": [],
+      "control_supplements": [
+        {
+          "text": "低温设备与管道保温，设防冻伤警示与防护。",
+          "std": "STD-GBZ1-2010"
+        }
+      ],
+      "emergency_ids": [
+        "E-06"
+      ],
+      "lec_id": "L-U07-02",
+      "provenance": {
+        "doc": "煤制天然气工艺危险源分析.docx",
+        "locator": "七、2"
+      }
+    },
+    {
+      "id": "H-U08-01",
+      "unit_id": "U08",
+      "title": "高压可燃气体爆炸火灾（压缩系统）",
+      "category": "爆炸",
+      "gb6441_class": "其他爆炸",
+      "occupational": false,
+      "emphasis": "重点",
+      "risk_rank": "主要",
+      "mechanism": "成品天然气主要成分为甲烷，压缩机为高压设备，密封失效、管线破裂高压天然气泄漏，遇火源爆炸；压缩过程超压会引发设备爆裂。",
+      "media": [
+        "CH₄",
+        "产品天然气"
+      ],
+      "consequences": [
+        "高压气体爆炸",
+        "设备爆裂",
+        "人员伤亡"
+      ],
+      "targets": [
+        "人员",
+        "设备"
+      ],
+      "detection": [
+        "可燃气体探测",
+        "压缩机振动/温度",
+        "超压联锁"
+      ],
+      "limits": [
+        "LMT-LEL_CH4"
+      ],
+      "control_supplements": [
+        {
+          "text": "压缩机房按爆炸危险区域设计，设置可燃气体探测与事故通风。",
+          "std": "STD-GB50160-2008"
+        },
+        {
+          "text": "压缩机设置超压、超温、振动联锁与紧急停车。",
+          "std": "STD-GB51428-2021"
+        },
+        {
+          "text": "安全阀、爆破片定期校验，泄放至安全地点。",
+          "std": "STD-TSG21-2016"
+        }
+      ],
+      "emergency_ids": [
+        "E-01",
+        "E-02",
+        "E-04"
+      ],
+      "lec_id": "L-U08-01",
+      "provenance": {
+        "doc": "煤制天然气工艺危险源分析.docx",
+        "locator": "八、1"
+      }
+    },
+    {
+      "id": "H-U08-02",
+      "unit_id": "U08",
+      "title": "甲烷窒息",
+      "category": "中毒和窒息",
+      "gb6441_class": "中毒和窒息",
+      "occupational": false,
+      "emphasis": "一般",
+      "risk_rank": "主要",
+      "mechanism": "甲烷大量泄漏隔绝空气，造成人员窒息。",
+      "media": [
+        "CH₄"
+      ],
+      "consequences": [
+        "缺氧窒息"
+      ],
+      "targets": [
+        "人员"
+      ],
+      "detection": [
+        "氧含量检测",
+        "可燃气体探测"
+      ],
+      "limits": [
+        "LMT-O2_DEFICIENCY"
+      ],
+      "control_supplements": [
+        {
+          "text": "受限空间作业检测氧含量，配备正压式空气呼吸器。",
+          "std": "STD-GB30871-2022"
+        }
+      ],
+      "emergency_ids": [
+        "E-03"
+      ],
+      "lec_id": "L-U08-02",
+      "provenance": {
+        "doc": "煤制天然气工艺危险源分析.docx",
+        "locator": "八、2"
+      }
+    },
+    {
+      "id": "H-U08-03",
+      "unit_id": "U08",
+      "title": "压缩机噪声",
+      "category": "噪声",
+      "gb6441_class": null,
+      "occupational": true,
+      "emphasis": "一般",
+      "risk_rank": "轻微",
+      "mechanism": "压缩机高噪声，职业健康一般风险。",
+      "media": [
+        "压缩机"
+      ],
+      "consequences": [
+        "噪声聋（长期暴露）"
+      ],
+      "targets": [
+        "人员"
+      ],
+      "detection": [
+        "噪声检测",
+        "听力检查"
+      ],
+      "limits": [
+        "LMT-OEL_NOISE"
+      ],
+      "control_supplements": [
+        {
+          "text": "压缩机设置隔声罩/消声器，岗位配备护耳器。",
+          "std": "STD-GB39800.1-2020"
+        }
+      ],
+      "emergency_ids": [],
+      "lec_id": "L-U08-03",
+      "provenance": {
+        "doc": "煤制天然气工艺危险源分析.docx",
+        "locator": "八、3"
+      }
+    },
+    {
+      "id": "H-U09-01",
+      "unit_id": "U09",
+      "title": "高压天然气泄漏爆炸（输气站/管线）",
+      "category": "爆炸",
+      "gb6441_class": "其他爆炸",
+      "occupational": false,
+      "emphasis": "重点",
+      "risk_rank": "主要",
+      "mechanism": "输气站调压设备、输送管线破损，高压甲烷泄漏，遇明火爆炸，可蔓延至厂区、城市管网。",
+      "media": [
+        "CH₄",
+        "高压天然气"
+      ],
+      "consequences": [
+        "爆炸",
+        "火灾蔓延",
+        "社会影响"
+      ],
+      "targets": [
+        "人员",
+        "设备",
+        "环境",
+        "周边"
+      ],
+      "detection": [
+        "可燃气体探测",
+        "管线泄漏监测",
+        "压力/流量异常"
+      ],
+      "limits": [
+        "LMT-LEL_CH4"
+      ],
+      "control_supplements": [
+        {
+          "text": "输气站按 GB 50028-2006 设置放空、截断与安全联锁。",
+          "std": "STD-GB50028-2006"
+        },
+        {
+          "text": "站场设置可燃气体探测报警与防爆电气。",
+          "std": "STD-GBT50493-2019"
+        },
+        {
+          "text": "管线定期检验、阴极保护与巡线。",
+          "std": "STD-GBT20801-2020"
+        }
+      ],
+      "emergency_ids": [
+        "E-01",
+        "E-02",
+        "E-05"
+      ],
+      "lec_id": "L-U09-01",
+      "provenance": {
+        "doc": "煤制天然气工艺危险源分析.docx",
+        "locator": "九、1"
+      }
+    },
+    {
+      "id": "H-U09-02",
+      "unit_id": "U09",
+      "title": "超压、水击与静电引燃",
+      "category": "爆炸",
+      "gb6441_class": "其他爆炸",
+      "occupational": false,
+      "emphasis": "一般",
+      "risk_rank": "主要",
+      "mechanism": "操作不当产生水击损坏管道设备；静电积聚引燃泄漏天然气。",
+      "media": [
+        "CH₄"
+      ],
+      "consequences": [
+        "管道水击损坏",
+        "静电引燃"
+      ],
+      "targets": [
+        "人员",
+        "设备"
+      ],
+      "detection": [
+        "压力波动监测",
+        "防静电接地检测"
+      ],
+      "limits": [
+        "LMT-LEL_CH4"
+      ],
+      "control_supplements": [
+        {
+          "text": "输气管道设置超压保护与紧急切断，操作严格执行升降压速率。",
+          "std": "STD-GBT20801-2020"
+        },
+        {
+          "text": "站场设备、管道法兰做防静电接地，定期检测接地电阻。",
+          "std": "STD-GB50160-2008"
+        }
+      ],
+      "emergency_ids": [
+        "E-01",
+        "E-02"
+      ],
+      "lec_id": "L-U09-02",
+      "provenance": {
+        "doc": "煤制天然气工艺危险源分析.docx",
+        "locator": "九、2"
+      }
+    },
+    {
+      "id": "H-U10-01",
+      "unit_id": "U10",
+      "title": "炉渣高温灼烫",
+      "category": "灼烫",
+      "gb6441_class": "灼烫",
+      "occupational": false,
+      "emphasis": "重点",
+      "risk_rank": "次要",
+      "mechanism": "气化炉排出炉渣温度高，直接接触造成烫伤。",
+      "media": [
+        "高温炉渣"
+      ],
+      "consequences": [
+        "烫伤",
+        "灼伤"
+      ],
+      "targets": [
+        "人员"
+      ],
+      "detection": [
+        "渣温监测",
+        "作业隔离"
+      ],
+      "limits": [],
+      "control_supplements": [
+        {
+          "text": "排渣区域设置隔离与警示，作业人员穿戴隔热防护。",
+          "std": "STD-GB39800.1-2020"
+        }
+      ],
+      "emergency_ids": [
+        "E-06"
+      ],
+      "lec_id": "L-U10-01",
+      "provenance": {
+        "doc": "煤制天然气工艺危险源分析.docx",
+        "locator": "十、1"
+      }
+    },
+    {
+      "id": "H-U10-02",
+      "unit_id": "U10",
+      "title": "脱硫石膏、炉渣转运粉尘",
+      "category": "粉尘",
+      "gb6441_class": null,
+      "occupational": true,
+      "emphasis": "一般",
+      "risk_rank": "轻微",
+      "mechanism": "脱硫石膏、炉渣转运粉尘，职业健康轻微风险；无重大爆炸中毒风险。",
+      "media": [
+        "脱硫石膏",
+        "炉渣粉尘"
+      ],
+      "consequences": [
+        "尘肺（长期暴露）",
+        "环境污染"
+      ],
+      "targets": [
+        "人员",
+        "环境"
+      ],
+      "detection": [
+        "粉尘浓度检测",
+        "职业健康监护"
+      ],
+      "limits": [
+        "LMT-OEL_DUST_TOTAL"
+      ],
+      "control_supplements": [
+        {
+          "text": "转运点设密闭罩与除尘，配备防尘口罩。",
+          "std": "STD-GB39800.1-2020"
+        },
+        {
+          "text": "一般工业固废按 GB 18599-2020 贮存与处置。",
+          "std": "STD-GB18599-2020"
+        }
+      ],
+      "emergency_ids": [
+        "E-05"
+      ],
+      "lec_id": "L-U10-02",
+      "provenance": {
+        "doc": "煤制天然气工艺危险源分析.docx",
+        "locator": "十、2"
+      }
+    },
+    {
+      "id": "H-U11-01",
+      "unit_id": "U11",
+      "title": "锅炉爆炸、蒸汽伤害",
+      "category": "锅炉爆炸",
+      "gb6441_class": "锅炉爆炸",
+      "occupational": false,
+      "emphasis": "重点",
+      "risk_rank": "次要",
+      "mechanism": "锅炉高温高压蒸汽，缺水、超压可引发锅炉爆炸；蒸汽管道泄漏喷射烫伤。",
+      "media": [
+        "高压蒸汽",
+        "锅炉"
+      ],
+      "consequences": [
+        "锅炉爆炸",
+        "蒸汽烫伤",
+        "全厂停车"
+      ],
+      "targets": [
+        "人员",
+        "设备",
+        "停产"
+      ],
+      "detection": [
+        "水位/压力/温度联锁",
+        "安全阀",
+        "定期检验"
+      ],
+      "limits": [],
+      "control_supplements": [
+        {
+          "text": "锅炉按 TSG 11-2020 办理使用登记、定期检验，司炉人员持证。",
+          "std": "STD-TSG11-2020"
+        },
+        {
+          "text": "锅炉设置高低水位、超压、熄火保护联锁与安全阀。",
+          "std": "STD-TSG11-2020"
+        },
+        {
+          "text": "蒸汽管道保温并设防烫警示，疏水器定期维护。",
+          "std": "STD-TSG11-2020"
+        }
+      ],
+      "emergency_ids": [
+        "E-02",
+        "E-04"
+      ],
+      "lec_id": "L-U11-01",
+      "provenance": {
+        "doc": "煤制天然气工艺危险源分析.docx",
+        "locator": "十一、1"
+      }
+    },
+    {
+      "id": "H-U11-02",
+      "unit_id": "U11",
+      "title": "烟气有毒成分与氨泄漏",
+      "category": "中毒和窒息",
+      "gb6441_class": "中毒和窒息",
+      "occupational": false,
+      "emphasis": "重点",
+      "risk_rank": "次要",
+      "mechanism": "脱硝脱硫系统，存在氨气泄漏中毒风险；烟气中CO、NOₓ泄漏中毒。",
+      "media": [
+        "NH₃",
+        "CO",
+        "NOₓ",
+        "SO₂"
+      ],
+      "consequences": [
+        "氨中毒",
+        "CO/NOₓ 中毒",
+        "呼吸道刺激"
+      ],
+      "targets": [
+        "人员",
+        "环境"
+      ],
+      "detection": [
+        "氨区有毒气体探测",
+        "烟气在线监测（CEMS）"
+      ],
+      "limits": [
+        "LMT-OEL_NH3_TWA",
+        "LMT-OEL_NO2_TWA",
+        "LMT-OEL_SO2_TWA"
+      ],
+      "control_supplements": [
+        {
+          "text": "氨区设置氨气探测报警与喷淋吸收设施。",
+          "std": "STD-GBT50493-2019"
+        },
+        {
+          "text": "烟气排放按 GB 13271-2014 限值执行并安装 CEMS。",
+          "std": "STD-GB13271-2014"
+        },
+        {
+          "text": "氨的装卸、储存按危险化学品管理，配备正压防护。",
+          "std": "STD-GB39800.1-2020"
+        }
+      ],
+      "emergency_ids": [
+        "E-01",
+        "E-03",
+        "E-05"
+      ],
+      "lec_id": "L-U11-02",
+      "provenance": {
+        "doc": "煤制天然气工艺危险源分析.docx",
+        "locator": "十一、2"
+      }
+    },
+    {
+      "id": "H-U11-03",
+      "unit_id": "U11",
+      "title": "除尘脱硝设备机械与噪声风险",
+      "category": "机械伤害",
+      "gb6441_class": "机械伤害",
+      "occupational": false,
+      "emphasis": "一般",
+      "risk_rank": "轻微",
+      "mechanism": "除尘、脱硝设备机械风险，噪声风险，属于一般风险。",
+      "media": [
+        "风机",
+        "除尘器",
+        "脱硝设备"
+      ],
+      "consequences": [
+        "机械伤害",
+        "噪声危害"
+      ],
+      "targets": [
+        "人员"
+      ],
+      "detection": [
+        "防护罩与联锁",
+        "噪声检测"
+      ],
+      "limits": [
+        "LMT-OEL_NOISE"
+      ],
+      "control_supplements": [
+        {
+          "text": "风机转动部位设防护罩，检修执行停机挂牌。",
+          "std": "STD-GB51428-2021"
+        }
+      ],
+      "emergency_ids": [
+        "E-06"
+      ],
+      "lec_id": "L-U11-03",
+      "provenance": {
+        "doc": "煤制天然气工艺危险源分析.docx",
+        "locator": "十一、3"
+      }
+    }
+  ],
+  "summary": {
+    "total": 32,
+    "by_risk_rank": {
+      "核心": 6,
+      "主要": 12,
+      "次要": 6,
+      "轻微": 8
+    },
+    "by_emphasis": {
+      "重点": 15,
+      "一般": 14,
+      "重大重点": 1,
+      "重大风险": 2
+    },
+    "core_hazards": [
+      "H-U03-01",
+      "H-U03-02",
+      "H-U04-01",
+      "H-U04-02",
+      "H-U04-03",
+      "H-U04-04"
+    ],
+    "note": "统计口径见 kb/README.md；risk_rank 取自原文档“整体危险源总结”的分层表述。"
+  }
+}

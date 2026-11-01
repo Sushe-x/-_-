@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>煤制天然气风险查询 · 按工艺步骤</title>
+<meta name="description" content="按工艺步骤查询煤制天然气装置可能发生与不可能发生的风险，附风险等级与应急预案；开放模型问答，并逐条核对推理。" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231f6fb2'/%3E%3Ctext x='32' y='42' font-size='26' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'%3ESNG%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+<div class="app">
+  <header>
+    <div class="logo">SNG</div>
+    <div class="titles">
+      <h1>煤制天然气风险查询</h1>
+      <div class="sub">按工艺步骤：会发生什么 · 不会发生什么 · 等级与预案</div>
+    </div>
+    <div class="spacer"></div>
+    <span id="mode" class="pill">检测中…</span>
+    <button id="btn-key" class="ghost" style="display:none">接入我的模型</button>
+  </header>
+
+  <div id="log" class="log"></div>
+
+  <div class="composer">
+    <div class="steps" id="steps"></div>
+    <div class="inputbar">
+      <textarea id="q" rows="1" placeholder="问第几步，或直接提问（Enter 发送，Shift+Enter 换行）"></textarea>
+      <button id="send" class="send">查询</button>
+    </div>
+    <div class="hint">步骤类问题由浏览器直接作答，不联网；其他问题取决于本站是否开放模型</div>
+  </div>
+</div>
+
+<div id="dlg" class="mask">
+  <div class="dlg">
+    <h3>接入我的模型</h3>
+    <p>填写你自己的 API Key。Key 只保存在这台设备的浏览器里，每次请求临时发给本站转发，本站不存储。</p>
+    <label class="field">API Key<input id="k-key" type="password" placeholder="sk-…" /></label>
+    <div class="actions">
+      <button id="k-save" class="primary">保存</button>
+      <button id="k-clear" class="ghost">清除</button>
+      <button id="k-cancel" class="ghost">关闭</button>
+    </div>
+    <div id="k-msg" class="kmsg"></div>
+  </div>
+</div>
+
+<script src="kb.js"></script>
+<script src="logic.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

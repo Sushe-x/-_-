@@ -1,0 +1,49 @@
+{
+  "ok": true,
+  "errors": [],
+  "warnings": [],
+  "stats": {
+    "units": 11,
+    "hazards": 32,
+    "lec_rows": 32,
+    "scenarios": 7,
+    "steps": 31,
+    "standards": 37,
+    "limits": 30,
+    "media": 10,
+    "crosswalk_findings": 26,
+    "action_items": 24,
+    "limits_pending_review": 23,
+    "major_hazard_units": 11,
+    "kb_steps": 11,
+    "possible_total": 64,
+    "impossible_total": 46,
+    "hazards_by_category": {
+      "爆炸": 7,
+      "中毒和窒息": 6,
+      "灼烫": 4,
+      "粉尘爆炸": 3,
+      "机械伤害": 3,
+      "火灾": 2,
+      "噪声": 2,
+      "坍塌": 1,
+      "腐蚀": 1,
+      "低温伤害": 1,
+      "粉尘": 1,
+      "锅炉爆炸": 1
+    },
+    "hazards_by_risk_rank": {
+      "次要": 6,
+      "轻微": 8,
+      "核心": 6,
+      "主要": 12
+    },
+    "lec_by_level": {
+      "高度危险": 10,
+      "一般危险": 10,
+      "显著危险": 5,
+      "极其危险": 3,
+      "稍有危险": 4
+    }
+  }
+}

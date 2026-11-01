@@ -1,0 +1,192 @@
+{
+  "$schema": "./schema.json#/definitions/emergency",
+  "kb_version": "1.0.0",
+  "organizing_principle": "按“泄漏、火灾爆炸、中毒窒息、设备故障、次生污染、人员急救、应急终止”七个场景组织；每个场景拆为可执行步骤，并标注责任岗位。",
+  "roles": [
+    { "id": "R-01", "name": "第一发现人", "duty": "发现异常立即报警并做初期处置" },
+    { "id": "R-02", "name": "班组长", "duty": "组织现场人员撤离、清点人数" },
+    { "id": "R-03", "name": "中控/操作工", "duty": "切断气源、工艺调整与紧急停车" },
+    { "id": "R-04", "name": "安全员", "duty": "消除火源、警戒与作业票管理" },
+    { "id": "R-05", "name": "抢险组", "duty": "通风稀释、带压堵漏、现场抢险" },
+    { "id": "R-06", "name": "监测组", "duty": "气体检测与警戒范围动态调整" },
+    { "id": "R-07", "name": "维修人员", "duty": "故障设备隔离与抢修" },
+    { "id": "R-08", "name": "环境监测组", "duty": "厂区及周边环境指标监测" },
+    { "id": "R-09", "name": "应急指挥部", "duty": "统一指挥、响应升级与终止宣布" },
+    { "id": "R-10", "name": "消防队", "duty": "灭火救援、冷却保护" },
+    { "id": "R-11", "name": "医疗救护组", "duty": "现场急救与转运" },
+    { "id": "R-12", "name": "全体人员", "duty": "遵守禁令、服从疏散指令" }
+  ],
+  "scenarios": [
+    {
+      "id": "E-01",
+      "order": 1,
+      "name": "煤气/天然气泄漏",
+      "trigger": "可燃气体报警、异味、压力异常或泄漏声响",
+      "priority": "人员安全 > 切断气源 > 消除火源 > 堵漏",
+      "hazard_ids": ["H-U01-01", "H-U04-01", "H-U04-02", "H-U05-01", "H-U05-02", "H-U06-01", "H-U07-01", "H-U08-01", "H-U09-01", "H-U11-02"],
+      "steps": [
+        { "id": "E-01-S1", "phase": "发现报警", "action": "出现可燃气体报警、异味、压力异常或泄漏声响时，立即报告中控室、班组长和应急值班室。", "role": "第一发现人", "role_source": "source" },
+        { "id": "E-01-S2", "phase": "人员撤离", "action": "组织现场人员向上风向、侧风向撤离，清点人数，禁止无关人员进入泄漏区域。", "role": "班组长", "role_source": "source" },
+        { "id": "E-01-S3", "phase": "切断气源", "action": "关闭泄漏点上下游阀门；必要时启动紧急停车系统，切断工艺气源。", "role": "中控/操作工", "role_source": "source" },
+        { "id": "E-01-S4", "phase": "消除火源", "action": "停止明火、动火、车辆启动和非防爆电器操作；警戒区内禁用非防爆手机、对讲机。", "role": "安全员", "role_source": "source" },
+        { "id": "E-01-S5", "phase": "通风稀释", "action": "开启防爆通风设施，使用喷雾水枪或水幕稀释气云；重点监测管沟、阀井、低洼区。", "role": "抢险组", "role_source": "source" },
+        { "id": "E-01-S6", "phase": "监测警戒", "action": "使用可燃气体检测仪持续监测，动态调整警戒范围。", "role": "监测组", "role_source": "source" },
+        { "id": "E-01-S7", "phase": "带压堵漏", "action": "佩戴正压式空气呼吸器、防静电服，使用防爆工具紧固法兰、注胶堵漏或更换垫片。", "role": "维修人员", "role_source": "source" },
+        { "id": "E-01-S8", "phase": "禁止操作", "action": "严禁无防护进入泄漏区，严禁在浓度不明时动火，严禁盲目开关非防爆电器。", "role": "全体人员", "role_source": "source", "type": "prohibition" }
+      ],
+      "standards": ["STD-GB30871-2022", "STD-GBT50493-2019", "STD-GB50160-2008"]
+    },
+    {
+      "id": "E-02",
+      "order": 2,
+      "name": "火灾爆炸",
+      "trigger": "明火、爆燃、设备超压破裂",
+      "priority": "报警疏散 > 初期灭火 > 切断气源 > 冷却保护",
+      "hazard_ids": ["H-U01-01", "H-U01-02", "H-U02-01", "H-U03-01", "H-U04-01", "H-U05-02", "H-U06-01", "H-U07-01", "H-U08-01", "H-U09-01", "H-U11-01"],
+      "steps": [
+        { "id": "E-02-S1", "phase": "初期火灾控制", "action": "发现火情立即报警，使用干粉、二氧化碳等适用灭火器材扑救初期火灾；同时报告中控室和应急指挥部。", "role": null, "role_source": "not_specified", "suggested_role": "第一发现人/消防队" },
+        { "id": "E-02-S2", "phase": "优先切断气源", "action": "在确保安全前提下关闭上游阀门。小管径管道着火可在可控条件下关阀断气；大管径管道着火严禁突然完全关阀，应降压、稀释并保持正压，防止回火爆炸。", "role": null, "role_source": "not_specified", "suggested_role": "中控/操作工" },
+        { "id": "E-02-S3", "phase": "冷却保护", "action": "启动消防水炮、喷淋系统，对受火势威胁的储罐、管道、压缩机、压力容器进行冷却降温，防止超压爆炸。", "role": null, "role_source": "not_specified", "suggested_role": "消防队/抢险组" },
+        { "id": "E-02-S4", "phase": "警戒疏散", "action": "划定警戒区，组织人员向上风向撤离；爆炸发生后重点防范二次爆炸、坍塌和次生泄漏。", "role": null, "role_source": "not_specified", "suggested_role": "安全员/班组长" },
+        { "id": "E-02-S5", "phase": "协同救援", "action": "消防队到场后，移交现场指挥权，提供工艺流程、介质特性、危险源位置和人员被困情况。", "role": null, "role_source": "not_specified", "suggested_role": "应急指挥部" }
+      ],
+      "standards": ["STD-GB51428-2021", "STD-GB50160-2008", "STD-GB50016-2014"]
+    },
+    {
+      "id": "E-03",
+      "order": 3,
+      "name": "中毒窒息",
+      "trigger": "CO/H₂S 报警、人员昏倒、受限空间缺氧",
+      "priority": "先防护后救援 > 转移伤员 > 现场急救",
+      "hazard_ids": ["H-U03-02", "H-U04-02", "H-U05-01", "H-U06-02", "H-U08-02", "H-U11-02"],
+      "steps": [
+        { "id": "E-03-S1", "phase": "先防护后救援", "action": "救援人员必须佩戴正压式空气呼吸器，严禁无防护进入疑似中毒区域。", "role": null, "role_source": "not_specified", "suggested_role": "抢险组/医疗救护组" },
+        { "id": "E-03-S2", "phase": "转移伤员", "action": "迅速将中毒者转移至空气新鲜处，解开衣领，保持呼吸道通畅，注意保暖。", "role": null, "role_source": "not_specified", "suggested_role": "医疗救护组" },
+        { "id": "E-03-S3", "phase": "现场急救", "action": "对呼吸、心跳停止者立即实施心肺复苏；必要时吸氧并尽快送医；一氧化碳中毒应争取高压氧舱治疗。", "role": null, "role_source": "not_specified", "suggested_role": "医疗救护组" },
+        { "id": "E-03-S4", "phase": "受限空间作业", "action": "严格执行“先通风、后检测、再作业”；进入前检测氧气、可燃气体和有毒气体浓度，设置监护人和安全绳。", "role": null, "role_source": "not_specified", "suggested_role": "作业人员/监护人" }
+      ],
+      "standards": ["STD-GB30871-2022", "STD-GBZ2.1-2019", "STD-GBT50493-2019"]
+    },
+    {
+      "id": "E-04",
+      "order": 4,
+      "name": "设备故障与公用工程异常",
+      "trigger": "压缩机/泵故障、停电停水停仪表风、控制系统失灵、气化炉/净化/甲烷化异常",
+      "priority": "降负荷或停车 > 隔离 > 防止泄漏扩大",
+      "hazard_ids": ["H-U04-03", "H-U05-02", "H-U06-01", "H-U08-01", "H-U11-01"],
+      "steps": [
+        { "id": "E-04-S1", "phase": "压缩机/风机/泵故障", "action": "立即降负荷或紧急停车，隔离故障设备，检查密封、轴承、润滑和冷却系统，防止泄漏扩大。", "role": null, "role_source": "not_specified", "suggested_role": "中控/操作工/维修人员" },
+        { "id": "E-04-S2", "phase": "停电、停水、停仪表风", "action": "投用应急电源，维持关键冷却、吹扫和安全联锁；关闭关键阀门，必要时执行紧急停车程序。", "role": null, "role_source": "not_specified", "suggested_role": "中控/操作工" },
+        { "id": "E-04-S3", "phase": "控制系统失灵", "action": "切换手动操作或安全联锁状态，防止超温超压；异常放空应经火炬或安全泄放系统处理。", "role": null, "role_source": "not_specified", "suggested_role": "中控/操作工" },
+        { "id": "E-04-S4", "phase": "气化炉、净化、甲烷化异常", "action": "按操作规程执行降负荷、隔离、置换、泄压和紧急停车，避免形成可燃、有毒气体积聚。", "role": null, "role_source": "not_specified", "suggested_role": "中控/操作工" }
+      ],
+      "standards": ["STD-GB51428-2021", "STD-TSG21-2016", "STD-TSG11-2020"]
+    },
+    {
+      "id": "E-05",
+      "order": 5,
+      "name": "次生环境污染",
+      "trigger": "事故废水外溢、气云扩散、危险废物产生",
+      "priority": "围堵收集 > 稀释监测 > 规范处置",
+      "hazard_ids": ["H-U05-03", "H-U07-01", "H-U09-01", "H-U10-02", "H-U11-02"],
+      "steps": [
+        { "id": "E-05-S1", "phase": "事故废水围堵", "action": "关闭雨水阀，启用事故应急池、围堰和导流沟，收集消防废水和泄漏液，严禁直接排入雨水系统或外环境。", "role": null, "role_source": "not_specified", "suggested_role": "抢险组/环保员" },
+        { "id": "E-05-S2", "phase": "废气扩散控制", "action": "对泄漏气云采用喷雾水幕稀释，持续监测下风向厂界和敏感点气体浓度。", "role": null, "role_source": "not_specified", "suggested_role": "抢险组/监测组" },
+        { "id": "E-05-S3", "phase": "残留物处置", "action": "对吸附材料、堵漏废弃物、受污染土壤和废水按危险废物规范收集、暂存和处置。", "role": null, "role_source": "not_specified", "suggested_role": "环保员" },
+        { "id": "E-05-S4", "phase": "环境监测", "action": "环境监测组对厂区及周边可燃气体、有毒气体、废水指标进行连续监测，直至恢复背景值。", "role": "环境监测组", "role_source": "source" }
+      ],
+      "standards": ["STD-GBT50483-2019", "STD-GB18597-2023", "STD-GB18599-2020"]
+    },
+    {
+      "id": "E-06",
+      "order": 6,
+      "name": "人员急救",
+      "trigger": "烧伤、外伤、中毒",
+      "priority": "脱离危险源 > 现场急救 > 尽快送医",
+      "hazard_ids": ["H-U01-03", "H-U02-02", "H-U03-03", "H-U04-03", "H-U06-03", "H-U07-02", "H-U10-01", "H-U11-03"],
+      "steps": [
+        { "id": "E-06-S1", "phase": "烧伤处置", "action": "迅速脱离热源，用冷水冲洗不少于15分钟，覆盖干净敷料，禁止涂抹药膏，及时送医。", "role": null, "role_source": "not_specified", "suggested_role": "医疗救护组" },
+        { "id": "E-06-S2", "phase": "外伤处置", "action": "对出血者进行压迫止血、包扎固定；疑似骨折者不随意搬动；重伤者立即拨打120。", "role": null, "role_source": "not_specified", "suggested_role": "医疗救护组" },
+        { "id": "E-06-S3", "phase": "中毒处置", "action": "立即转移至空气新鲜处，保持呼吸道通畅，必要时实施心肺复苏，并尽快送医。", "role": null, "role_source": "not_specified", "suggested_role": "医疗救护组" }
+      ],
+      "standards": ["STD-GBZ1-2010", "STD-GB39800.1-2020"]
+    },
+    {
+      "id": "E-07",
+      "order": 7,
+      "name": "应急终止与复盘",
+      "trigger": "泄漏点修复、浓度受控、人员清点完毕、环境风险受控",
+      "priority": "确认受控 > 宣布终止 > 置换复查 > 复盘改进",
+      "hazard_ids": [],
+      "steps": [
+        { "id": "E-07-S1", "phase": "应急终止条件", "action": "泄漏点已修复或气源已切断；可燃和有毒气体浓度降至安全范围并稳定一段时间；人员清点完毕；环境风险受控；由应急指挥部宣布响应终止。", "role": "应急指挥部", "role_source": "source" },
+        { "id": "E-07-S2", "phase": "恢复生产", "action": "恢复前进行氮气置换、泄漏复查、压力试验和安全确认，确认无隐患后按程序恢复生产。", "role": null, "role_source": "not_specified", "suggested_role": "生产/设备部门" },
+        { "id": "E-07-S3", "phase": "复盘修订", "action": "事故处置结束后开展原因分析、责任追溯、预案评估和修订，形成“处置—复盘—改进”闭环。", "role": null, "role_source": "not_specified", "suggested_role": "应急指挥部/安全部门" }
+      ],
+      "standards": ["STD-GBT29639-2020", "STD-AQT9007-2019"]
+    }
+  ],
+  "response_matrix": {
+    "status": "suggested",
+    "disclaimer": "响应级别与时限为企业管理口径的建议值，不是国家标准规定。正式预案须由企业按《生产安全事故应急预案管理办法》与自身组织机构确定，并履行评审、发布、备案程序。",
+    "basis": ["STD-GBT29639-2020"],
+    "levels": [
+      {
+        "risk_level": "重大风险",
+        "lec_levels": ["极其危险"],
+        "d_range": "D > 320",
+        "response_grade": "Ⅰ级（厂级）",
+        "commander": "企业主要负责人 / 应急指挥部",
+        "first_action": "立即停止作业或紧急停车，切断气源，人员撤离至上风向集合点",
+        "deadline": "立即启动；30 分钟内完成初次报告",
+        "report_to": "企业主要负责人，并按属地要求上报应急管理部门",
+        "review": "处置结束后 7 日内完成复盘，预案 30 日内评估修订",
+        "scenario_ids": ["E-01", "E-02", "E-03", "E-04"]
+      },
+      {
+        "risk_level": "较大风险",
+        "lec_levels": ["高度危险"],
+        "d_range": "160 < D ≤ 320",
+        "response_grade": "Ⅱ级（部门级）",
+        "commander": "分管负责人 / 生产部门负责人",
+        "first_action": "降负荷或局部停车，隔离泄漏点，启动现场处置方案",
+        "deadline": "立即启动；2 小时内提交处置方案",
+        "report_to": "企业分管负责人与安全管理部门",
+        "review": "处置结束后 15 日内完成复盘与整改计划",
+        "scenario_ids": ["E-01", "E-02", "E-03", "E-04", "E-05"]
+      },
+      {
+        "risk_level": "一般风险",
+        "lec_levels": ["显著危险"],
+        "d_range": "70 ≤ D ≤ 160",
+        "response_grade": "Ⅲ级（车间级）",
+        "commander": "车间主任 / 值班长",
+        "first_action": "按操作规程处置，设置警戒，通知中控与安全员",
+        "deadline": "当班处置；24 小时内报安全管理部门",
+        "report_to": "车间与安全管理部门",
+        "review": "纳入月度安全分析会",
+        "scenario_ids": ["E-01", "E-03", "E-06"]
+      },
+      {
+        "risk_level": "低风险",
+        "lec_levels": ["一般危险", "稍有危险"],
+        "d_range": "D < 70",
+        "response_grade": "Ⅳ级（班组级）",
+        "commander": "班组长",
+        "first_action": "现场纠正与警示，必要时报修，保持观察",
+        "deadline": "当班闭环",
+        "report_to": "班组交接班记录",
+        "review": "纳入日常巡检与隐患排查台账",
+        "scenario_ids": ["E-06"]
+      }
+    ]
+  },
+  "gaps": [
+    { "id": "GAP-E-01", "issue": "缺少预警分级与响应分级（Ⅰ~Ⅳ级）", "basis": "STD-GBT29639-2020", "suggestion": "补充预警条件、响应分级、升级与降级规则。" },
+    { "id": "GAP-E-02", "issue": "缺少信息报告流程与外部通讯录", "basis": "STD-GBT29639-2020", "suggestion": "明确内部报告时限、上报政府部门的流程与联系电话。" },
+    { "id": "GAP-E-03", "issue": "缺少应急资源调查清单（物资、装备、队伍）", "basis": "STD-GBT29639-2020", "suggestion": "按 GB 30077-2013 编制应急救援物资配备清单并定期检查。" },
+    { "id": "GAP-E-04", "issue": "缺少疏散路线图、警戒范围图等附件", "basis": "STD-GBT29639-2020", "suggestion": "补充平面布置图、疏散路线图、周边敏感点图。" },
+    { "id": "GAP-E-05", "issue": "未明确预案演练与修订周期", "basis": "STD-AQT9007-2019", "suggestion": "规定综合/专项演练频次，并建立三年一次的预案评估修订机制。" }
+  ],
+  "provenance": { "doc": "应急预案措施.docx", "locator": "全文（七个场景）" }
+}
